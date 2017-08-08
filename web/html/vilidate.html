@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>验证</title>
+    <script src="../resource/jquery-3.2.0.js"></script>
+    <link rel="stylesheet" href="../resource/bootstrap-3.3.7/dist/css/bootstrap.css">
+    <script src="../resource/bootstrap-3.3.7/dist/js/bootstrap.js"></script>
+    <script src="../resource/jquery.validate.js"></script>
+    <script src="../resource/jquery.validate.extend.js"></script>
+    <style>
+        body{
+            font-family: Microsoft Yahei;
+            font-size: 15px;
+        }
+
+        fieldset{    width: 680px;    }
+
+        legend{    margin-left: 8px;    }
+
+        .item{
+            height: 56px;
+            line-height: 36px;
+            margin: 10px;
+        }
+
+        .item .item-label{
+            float: left;
+            width: 80px;
+            text-align: right;
+        }
+
+        .item-text{
+            float: left;
+            width: 244px;
+            height: 16px;
+            padding: 9px 25px 9px 5px;
+            margin-left: 10px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+        }
+
+        .item-select{
+            float: left;
+            height: 34px;
+            border: 1px solid #ccc;
+            margin-left: 10px;
+            font-size: 14px;
+            padding: 6px 0px;
+        }
+
+        .item-submit{
+            margin-left: 88px;
+        }
+
+        input.error{
+            border: 1px solid #E6594E;
+        }
+
+        input.highlight{
+            border: 1px solid #7abd54;
+        }
+
+        label.error,label.tip{
+            float: left;
+            height: 32px;
+            line-height: 32px;
+            font-size: 14px;
+            text-align: left;
+            margin-left: 5px;
+            padding-left: 20px;
+            color: red;
+            background: url('../images/error.png') no-repeat left center;
+        }
+
+        label.tip{
+            color: #aaa;
+            background: url("../images/help.png") no-repeat left center;
+        }
+
+        label.valid{
+            background: url("../images/correct.png") no-repeat left center;
+               width: 32px;
+           }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $("#regForm").validate({
+                rules: {
+                    username:{
+                        required: true,
+                        minlength: 2
+                    },
+                    password:{
+                        required: true,
+                        minlength: 6,
+                        maxlength: 16
+                    },
+                    repassword:{
+                        required: true,
+                        equalTo: "#password"
+                    },
+                    amt: {
+                        required: true,
+                        amtCheck: true
+                    }
+                },
+                messages:{
+                    username:{
+                        required: "用户名不能为空",
+                        minlength: "用户名的最小长度为2"
+                    },
+                    password:{
+                        required: "密码不能为空",
+                        minlength: "密码长度不能少于6个字符",
+                        maxlength: "密码长度不能超过16个字符"
+                    },
+                    repassword:{
+                        required: "确认密码不能为空",
+                        equalTo: "确认密码和密码不一致"
+                    },
+                    amt: {
+                        required: "金额不能为空"
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<form action="#" method="post" id="regForm">
+
+        <legend>jquery-validate表单校验验证</legend>
+        <div class="item">
+            <label for="username" class="item-label">用户名:</label>
+            <input type="text" id="username" name="username" class="item-text" placeholder="设置用户名"
+                   autocomplete="off" tip="请输入用户名">
+        </div>
+        <div class="item">
+            <label for="password" class="item-label">密码:</label>
+            <input type="password" id="password" name="password" class="item-text" placeholder="设置密码"
+                   tip="长度为6-16个字符">
+        </div>
+        <div class="item">
+            <label for="password" class="item-label">确认密码:</label>
+            <input type="password" name="repassword" class="item-text" placeholder="设置确认密码">
+        </div>
+        <div class="item">
+            <label for="amt" class="item-label">金额:</label>
+            <input type="text" id="amt" name="amt" class="item-text" placeholder="交易金额"
+                   tip="交易金额必须大于0，且最多有两位小数">
+        </div>
+        <div class="item">
+            <input type="submit" value="提交" class="item-submit">
+        </div>
+
+</form>
+<div class="dropdown">
+    <a id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Dropdown trigger
+        <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="dLabel">
+       退出
+    </ul>
+</div>
+</body>
+</html>

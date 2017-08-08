@@ -1,0 +1,86 @@
+/*主界面头部*/
+#all_header{
+    margin-top: -3px;
+}
+.header{
+    height: 88px;
+    width: 1200px;
+    margin:0 0 0 120px;
+}
+
+.header .logo{
+    float: left;
+    margin-left: -5px;
+    margin-top: 5px;
+}
+
+#nav li{
+    float: left;
+    list-style: none;
+    padding: 50px 0 0 30px;
+
+}
+#nav a{
+    font-weight: 400;
+    font-size: 16px;
+}
+form{
+    padding-left: 15px;
+    float: left;
+    margin: 40px 0 0 15px;
+}
+form input{
+    width: auto !important;
+    display: inline-block!important;
+}
+form button{
+    height: 33px
+}
+form a{
+    width: 68px;
+    height: 33px
+}
+.header h4{
+    color: #0f0f0f;
+    position: relative;
+    left: 80px;
+
+}
+
+.userInfo .exit{
+    color: #0f0f0f;
+    font-size: 16px;
+    display:none;
+    width: 40px;
+    position: relative;
+    left: 1080px;
+    top: -60px;
+
+}
+ .userInfo:hover .exit{
+    color: #00b3ee;
+    display: block;
+    margin-top: -20px;
+}
+.user_logo{
+    margin-left: 140px;
+}
+#all_header a{
+    text-decoration: none;
+}
+.modal-body{
+    display: inline-block;
+    margin-left: 15px;
+    margin-top: -15px;
+
+}
+.modal input{
+    width: 220px;
+    margin-top: -30px;
+    margin-left: 25px;
+}
+.modal-body span{
+    margin-left: -15px;
+    margin-top: 24px;
+    font-size: 26px;
+}

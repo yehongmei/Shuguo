@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滚动监听插件</title>
+    <link rel="stylesheet" href="../resource/bootstrap-3.3.7/dist/css/bootstrap.css">
+    <script src="../resource/jquery-3.2.0.js"></script>
+    <script src="../resource/bootstrap-3.3.7/dist/js/bootstrap.js"></script>
+    <script>
+        function removeSec(e) {
+            console.log($(e).parents('.sec').remove());
+            $("#content").scrollspy("refresh");
+        }
+    </script>
+</head>
+<body>
+<button class="btn btn-success glyphicon glyphicon-thumbs-up">&nbsp;赞0</button>
+    <nav id="nav" class="navbar navbar-default">
+        <a href="#" class="navbar-brand">Web开发</a>
+        <ul class="nav navbar-nav">
+            <li><a href="#html5">Html5</a></li>
+            <li><a href="#bootstrap">Bootstrap</a></li>
+            <li class="dropdown">
+                <a href="#" data-toggle="dropdown">Javascript<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#Jquery">Jquery</a></li>
+                    <li><a href="#Extjs">Extjs</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <nav id="nav1" class="navbar navbar-default">
+        <a href="#" class="navbar-brand">Web开发</a>
+        <ul class="nav navbar-nav">
+            <li><a href="#html5">Html5</a></li>
+            <li><a href="#bootstrap">Bootstrap</a></li>
+            <li class="dropdown">
+                <a href="#" data-toggle="dropdown">Javascript<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#Jquery">Jquery</a></li>
+                    <li><a href="#Extjs">Extjs</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div id="content" data-offset="0" data-spy="scroll" data-target="#nav1" style="padding: 0 20px;height: 200px;overflow: auto;position: relative">
+       <section class="sec">
+             <h4 id="html5">Html5<a href="#" onclick="removeSec(this);">删除</a></h4>
+             <p>我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5</p>
+       </section>
+        <section class="sec">
+            <h4 id="bootstrap">Bootstrap</h4>
+            <p>我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap</p>
+        </section>
+        <section class="sec">
+            <h4 id="Jquery">Jquery</h4>
+             <p>我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5</p>
+        </section>
+        <section class="sec">
+            <h4 id="Extjs">Extjs</h4>
+            <p>我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap</p>
+        </section>
+        <h4 >Html5</h4>
+        <p>我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5</p>
+        <h4>Bootstrap</h4>
+        <p>我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap</p>
+    </div>
+    <div class="dropdown">
+        <button class="btn btn-default"data-toggle="dropdown" >
+            下拉菜单
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">咨询</a></li>
+            <li><a href="#">产品</a></li>
+            <li><a href="#">关于</a></li>
+        </ul>
+    </div>
+</body>
+</html>

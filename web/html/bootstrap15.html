@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>按钮插件</title>
+    <link rel="stylesheet" href="../resource/bootstrap-3.3.7/dist/css/bootstrap.css">
+    <script src="../resource/jquery-3.2.0.js"></script>
+    <script src="../resource/bootstrap-3.3.7/dist/js/bootstrap.js"></script>
+    <script>
+        $(function () {
+            $("#btn").on("click",function () {
+                var btn1=$(this).button("loading");
+                setTimeout(function () {
+                    btn1.button("reset");
+                },1000);
+            });
+        });
+    </script>
+</head>
+<body style="margin: 100px">
+    <button class="btn btn-primary" data-toggle="collapse" data-target="#content">Bootstrap</button>
+    <div class="collapse" id="content">
+        <p class="well">我是bootstrap我是bootstrap我是bootstrap我是bootstrap我是bootstrap我是bootstrap我是bootstrap</p>
+    </div>
+    <br><br><br><br><br>
+    <button id="btn" class="btn btn-default" data-loading-text="loading..." autocomplete="off" >开始上传</button>
+    <br>
+    <br>
+    <button class="btn btn-default" data-toggle="button" autocomplete="off" >按钮</button>
+    <div class="btn-group" data-toggle="buttons">
+    <label class="btn btn-primary active">
+        <input type="radio" name="sex" value="男" checked>男
+    </label>
+    <label  class="btn btn-primary">
+        <input type="radio" name="sex" value="女">女
+    </label>
+    </div>
+</body>
+</html>

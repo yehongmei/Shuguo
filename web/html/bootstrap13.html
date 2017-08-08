@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>标签页插件</title>
+    <link rel="stylesheet" href="../resource/bootstrap-3.3.7/dist/css/bootstrap.css">
+    <script src="../resource/jquery-3.2.0.js"></script>
+    <script src="../resource/bootstrap-3.3.7/dist/js/bootstrap.js"></script>
+    <style>
+      /*  a:focus{
+            outline: none;
+        }*/
+    </style>
+    <script>
+        $(function () {
+            $("a").tooltip({
+                show:500,
+                hide:100,
+                placement:"auto top",
+            });
+        });
+
+    </script>
+</head>
+<body style="margin: 100px">
+    <a href="#"  data-toggle="tooltip" data-animation="true"
+       data-html="true"
+       data-placement="auto top"
+       data-trigger="hover focus"
+       data-delay="100"
+       data-original-title="123"
+       title="<b>超文本标识符</b>">Html5</a>
+    <a href="#"  data-toggle="tooltip" title="超文本标识符">Html5</a>
+    <br><br>
+    <ul class="nav nav-tabs">
+        <li  class="active"><a href="#bootstrap" data-toggle="tab">Bootstrap</a></li>
+        <li><a href="#jquery" data-toggle="tab">Jquery</a></li>
+        <li><a href="#html5" data-toggle="tab">Html5</a></li>
+        <li><a href="#extjs" data-toggle="tab">Extjs</a></li>
+    </ul>
+    <div class="tab-content" style="padding: 10px">
+        <div  class="tab-pane fade in  active" id="bootstrap">我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap我是Bootstrap</div>
+        <div id="html5" class="tab-pane fade">我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5我是Html5</div>
+        <div  class="tab-pane fade" id="jquery">我是Jquery我是Jquery我是Jquery我是Jquery我是Jquery我是Jquery我是Jquery我是Jquery</div>
+        <div class="tab-pane fade" id="extjs">我是Extjs我是Extjs我是Extjs我是Extjs我是Extjs我是Extjs我是Extjs我是Extjs我是Extjs我是Extjs我是Extjs我是Extjs我是Extjs我是Extjs我是Extjs我是Extjs我是Extjs我是Extjs我是Extjs我是Extjs我是Extjs我是Extjs</div>
+
+    </div>
+</body>
+</html>

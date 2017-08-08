@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模态框插件</title>
+    <link rel="stylesheet" href="../resource/bootstrap-3.3.7/dist/css/bootstrap.css">
+    <script src="../resource/jquery-3.2.0.js"></script>
+    <script src="../resource/bootstrap-3.3.7/dist/js/bootstrap.js"></script>
+    <script>
+       $(function () {
+           $("#btn").on("click",function () {
+                $("#myModal1").modal('show');
+            });
+            $("#myModal1").modal({
+                show:false,
+           backdrop:true,
+                keyboard:false,
+                remote:"bootstrap.html",
+            });
+       });
+
+       /*  $("#myModal1").on("show.bs.modal",function () {
+                alert("当调用show方法立即执行")
+            });
+            $("#myModal1").on("shown.bs.modal",function () {
+                alert("当弹窗完全执行完再执行")
+            });
+            $("#myModal1").on("hide.bs.modal",function () {
+                alert("当调用hide方法立即执行")
+            });
+            $("#myModal1").on("hidden.bs.modal",function () {
+                alert("当弹窗完全执行完再执行")
+            });
+            $("#myModal1").on("loaded.bs.modal",function () {
+                alert("当远程加载后触发")
+
+        });*/
+    </script>
+</head>
+<body style="margin: 100px">
+ <!--   模态框声明-->
+    <div class="modal fade" id="myModal" tabindex="-1">
+        <!-- 窗口声明-->
+        <div class="modal-dialog modal-sm">
+            <!-- 内容声明-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" data-dismiss="modal"><span>&times;</span></button>
+                    <h4 class="modal-title">会员登录</h4>
+                </div>
+                <div class="modal-body">
+
+               <input   type="email" class="form-control" placeholder="请输入用户名">
+                    <input   type="email" class="form-control" placeholder="请输入密码">
+                    <input   type="email" class="form-control" placeholder="请输入电子邮箱">
+                    <input   type="text" class="form-control" placeholder="请输入电话">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default">注册</button>
+                    <button class="btn btn-primary">登录</button>
+                </div>
+            </div>
+        </div>
+ </div>
+    <button class="btn btn-default" data-toggle="modal" data-target="#myModal">点击注册</button>
+<div class="modal fade" id="myModal1" tabindex="-1">
+     &lt;!&ndash; 窗口声明&ndash;&gt;
+     <div class="modal-dialog modal-sm">
+         &lt;!&ndash; 内容声明&ndash;&gt;
+         <div class="modal-content">
+             <div class="modal-header">
+                 <button class="close" data-dismiss="modal"><span>&times;</span></button>
+                 <h4 class="modal-title">会员登录</h4>
+             </div>
+             <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-4">1</div>
+                            <div class="col-md-4">1</div>
+                            <div class="col-md-4">1</div>
+                        </div>
+                    </div>
+             </div>
+             <div class="modal-footer">
+                 <button class="btn btn-default">注册</button>
+                 <button class="btn btn-primary">登录</button>
+             </div>
+         </div>
+     </div>
+ </div>
+ <!--data-backdrop="true"  点击空白关闭弹窗
+ data-keyboard="true" 按esc关闭弹窗-->
+ <!--<button class="btn btn-default" id="btn"  data-keyboard="true" >点击</button>-->
+
+</body>
+</html>

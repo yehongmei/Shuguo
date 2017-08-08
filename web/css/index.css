@@ -1,0 +1,163 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/*主界面中间部分*/
+#all_content{
+    background-color:#F8F8F7;
+}
+.content{
+    height: 1460px;
+    width: 1100px;
+    padding-top: 30px;
+    margin: auto;
+
+}
+.carousel_part{
+    float: left;
+}
+.hot_recommendation{
+    background-color: #FFF4EA;
+    width: 360px;
+    height:220px;
+    float: right;
+}
+
+h3{
+    margin-left: 8px;
+}
+.list{
+    padding-left: 10px;
+    width: 80px;
+}
+.list li{
+    text-align: center;
+    margin-top: 2px;
+    list-style: none;
+    font-size: 16px;
+    font-weight: 500;
+    border: solid 3px #FFA853;
+    background-color:#FFA853 ;
+}
+.list a{
+    color: white;
+}
+.list li>a:hover{
+    color: white;
+}
+.tab{
+    width: 250px;
+    margin-top: -205px;
+    margin-left: 70px;
+}
+
+.tab tr td{
+    font-size: 15px;
+    font-weight: 200;
+    padding-top: 9px;
+}
+.new_recipes{
+    background-color:white;
+    height: 430px;
+    width: 700px;
+    float:left;
+    margin-top: 20px;
+
+
+}
+.new_recipes_font{
+    font-size: 20px;
+    font-weight: 400;
+    padding-left: 20px;
+}
+.new_recipes_list li{
+    width: 200px;
+    height: 175px;
+    float: left;
+    margin: 5px 10px 0  0;
+    padding: 10px 10px 10px 10px;
+    list-style: none;
+}
+.new_recipes_list li a{
+    color: #666666;
+}
+.new_recipes_list a:hover{
+    color: #FFB452;
+}
+.new_recipes_list p{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+}
+.hot_menu{
+    background-color:white;
+    margin-top: 20px;
+    width: 360px;
+    height:430px;
+    float:right;
+}
+.hot_menu_font{
+    margin-left: 22px;
+}
+.hot_menu ul{
+    height:380px;
+    margin-left: 15px;
+}
+.hot_menu ul li{
+    font-size: 18px;
+    padding: 15px 15px 15px 5px;
+   list-style:none;
+    float: left;
+}
+
+.hot_menu li a{
+    color: #FFB452;
+}
+.choice_recipes{
+    clear: both;
+    width: 1100px;
+    height: 710px;
+    position: relative;
+    top: 20px;
+    background:white;
+
+}
+.choice_recipes_font{
+    position: relative;
+    top:15px;
+    padding-left: 20px;
+    font-size: 20px;
+    font-weight: 400;
+}
+.choice_recipes_list{
+    margin-left: -10px;
+}
+.choice_recipes_list li{
+    width: 260px;
+    height: 220px;
+    float: left;
+    padding-left: 5px;
+    list-style: none;
+    margin-top: 3px;
+
+}
+
+.choice_recipes_list img{
+    padding: 10px 10px 10px 10px;
+}
+
+.choice_recipes_list p{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    margin-left: 10px;
+
+}
+.choice_recipes_list a{
+    color:#666666;
+}
+.choice_recipes_list a:hover{
+    color: #FFB452;
+}
+

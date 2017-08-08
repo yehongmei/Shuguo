@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>栅格系统</title>
+    <link rel="stylesheet" href="../resource/bootstrap-3.3.7/dist/css/bootstrap.css">
+    <script src="../resource/jquery-3.2.0.js"></script>
+    <script src="../resource/bootstrap-3.3.7/dist/js/bootstrap.js"></script>
+    <style>
+        .a{
+            height: 100px;
+            border: solid 1px #ccc;
+            background: #EEEEEE;
+        }
+    </style>
+</head>
+<!--<div class="container-fluid">100%比例-->
+<body>
+    <div class="container a">
+        <div class="row">
+            <div class="col-md-5 a">1</div>
+            <div class="col-md-5 a">1</div>
+            <div class="col-md-2 a">1</div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 a">1</div>
+            <div class="col-md-4 a">1</div>
+            <div class="col-md-4 a">1</div>
+        </div>
+    </div>
+
+    <div class="container a">
+        <div class="row">
+            <div class="col-md-8 a">1</div>
+            <div class="col-md-3 col-lg-offset-1 a">1</div>
+        </div>
+        <div class="row" >
+            <div class="col-md-8 a" style="padding: 0">
+                <div class="col-md-4 a">1</div>
+                <div class="col-md-4 a">1</div>
+                <div class="col-md-4 a">1</div>
+            </div>
+            <div class="col-md-3 a">1</div>
+        </div>
+        <div class="row">
+            <div class="col-md-9 col-md-push-3 a">9</div>
+            <div class="col-md-3 col-md-pull-9 a">3</div>
+        </div>
+    </div>
+</body>
+</html>
