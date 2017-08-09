@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class CommentService {
     @Autowired
     private CommentMapper commentMapper;
-    public  boolean insertComment(Comment comment){
-        return commentMapper.insertComment(comment)>0;
+    public  int insertComment(Comment comment){
+        return commentMapper.insertComment(comment);
     }
 }

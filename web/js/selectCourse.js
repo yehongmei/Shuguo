@@ -20,10 +20,9 @@ $(function () {
         var comment=$(".textarea").val();
         var cid=$("#c_id").val();
         $.post("insertComment",{"course.c_id":cid,comment_content:comment},function (data) {
-            if(data){
-            $(".user").after("<span class='time'>"+"data.comment_content"+"</span>");
-            }
-
+                $(".user>.u_name").text(data.user.username);
+            $(".user>.time").text(data.comment_date);
+               $(".user_info>.content").text(data.comment_content);
         });
 
     });

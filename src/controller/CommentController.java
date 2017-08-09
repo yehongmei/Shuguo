@@ -19,7 +19,7 @@ public class CommentController {
     private CommentService commentService;
     @RequestMapping("/insertComment")
     @ResponseBody
-    public  boolean insertComment(Comment comment, HttpSession session){
+    public  Comment insertComment(Comment comment, HttpSession session){
            /*获取当前时间*/
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd  hh:mm:ss");
@@ -32,8 +32,8 @@ public class CommentController {
         User userComment = new User();
         userComment.setU_id(user.getU_id());
         userComment.setUsername(user.getUsername());
-       comment.setUser(userComment);
-        boolean c=commentService.insertComment(comment);
-        return c;
+        comment.setUser(userComment);
+        int a=commentService.insertComment(comment);
+        return comment;
     }
 }
