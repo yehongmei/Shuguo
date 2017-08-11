@@ -15,15 +15,41 @@
 }
 
 #nav li{
+    position:relative;
     float: left;
+    z-index:1;
     list-style: none;
     padding: 50px 0 0 30px;
 
 }
-#nav a{
-    font-weight: 400;
-    font-size: 16px;
+#nav .two_level_menu{
+    position:absolute;
+    background-color: white;
+    left:7px;
+    display: none;
 }
+#nav li>a:hover{
+    color: #FFB452;
+}
+#nav .two_level_menu>li{
+    margin-left: -40px;
+    padding: 10px 0 0 0px;
+}
+#nav .two_level_menu li>a{
+    text-align: center;
+    color: #FFB452;
+    display:block;
+    width: 90px;
+}
+
+#nav  li:hover .two_level_menu{
+    background-color:white;
+    display:block;
+}
+#nav .two_level_menu a:hover{
+    color: #337AB7;
+}
+
 form{
     padding-left: 15px;
     float: left;

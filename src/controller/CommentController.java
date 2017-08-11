@@ -32,6 +32,7 @@ public class CommentController {
         User userComment = new User();
         userComment.setU_id(user.getU_id());
         userComment.setUsername(user.getUsername());
+        /*把用户名添加评论表*/
         comment.setUser(userComment);
         int a=commentService.insertComment(comment);
         return comment;
