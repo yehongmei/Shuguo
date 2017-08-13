@@ -1,0 +1,42 @@
+#all_content{
+    background-color:#EEEEEE;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+#all_content .h4{
+    font-family: "Times New Roman", Times, serif;
+    width: 100px;
+    margin-left: 190px;
+}
+.content{
+    height: 900px;
+    width: 1000px;
+    margin: auto;
+    background-color: white;
+}
+.new_recipes_list li{
+    width: 240px;
+    height: 220px;
+    float: left;
+    margin: 5px 0px 0  10px;
+    padding: 10px;
+    list-style: none;
+}
+.new_recipes_list img{
+    border-radius: 5px;
+}
+.new_recipes_list li a{
+    color: #666666;
+}
+.new_recipes_list a:hover{
+    color: #FFB452;
+}
+.new_recipes_list p{
+    margin-top: 7px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+}
+.pagination{
+    margin-left: 570px;
+}

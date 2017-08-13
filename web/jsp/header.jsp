@@ -8,7 +8,6 @@
 <head>
     <base href="<%=basePath%>">
     <title>蔬果头部</title>
-    <link rel="stylesheet" href="../css/header.css">
     <link rel="icon"  type="image/x-icon" href="images/title_logo.ico">
 </head>
 <body>
@@ -23,7 +22,7 @@
                 <li><a href="#"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-book"></span> 菜谱</a>
                     <ul class="two_level_menu">
-                        <li><a href="selectAllCourse?c_type=家常菜谱">家常菜谱</a></li>
+                        <li><a href="selectAllCourseAndPage?c_type=家常菜谱&pageNumber=1">家常菜谱</a></li>
                         <li><a href="">特色面食</a></li>
                         <li><a href="">八大菜系</a></li>
                         <li><a href="">四季食谱</a></li>
@@ -40,7 +39,7 @@
             </form >
             <div class="userInfo">
                 <%if(user!=null){%>
-                <h4 > <span>欢迎，%= user.getUsername()%>&nbsp;&nbsp;</span></h4>
+                <h4 > <span>欢迎,<%= user.getUsername()%>&nbsp;&nbsp;</span></h4>
                 <a  class="exit" href="jsp/exit.jsp" target="_top">退出</a>
                 <%}else{%>
                 <a class="user_logo" href="jsp/login.jsp">登录|</a>

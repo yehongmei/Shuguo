@@ -12,7 +12,9 @@
     <meta name="description" content="丰富的菜谱大全让您轻松地学会怎么做美食，展现自己的高超厨艺，与会员一同分享美味的人生！">
     <link rel="icon"  type="image/x-icon" href="images/title_logo.ico">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/newRecipe.css">
     <link rel="stylesheet" href="resource/bootstrap-3.3.7/dist/css/bootstrap.css">
     <script src="resource/jquery-3.2.0.js"></script>
     <script src="resource/bootstrap-3.3.7/dist/js/bootstrap.js"></script>

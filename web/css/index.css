@@ -79,10 +79,6 @@ h3{
     padding: 10px 10px 10px 10px;
     list-style: none;
 }
-new_recipes_list li a>img{
-    height:140px;
-    width: 180px;
-}
 .new_recipes_list li a{
     color: #666666;
 }

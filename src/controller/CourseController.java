@@ -1,8 +1,8 @@
 package controller;
+import entities.Condition;
 import entities.Course;
 import entities.FilePathResponse;
 import entities.User;
-import org.omg.CORBA.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +17,6 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 @Controller
 public class CourseController {
@@ -77,10 +76,10 @@ public class CourseController {
         return  courseService.updateCoursePraise(c_id);
     }
     /*查询属于一种类型的菜*/
-    @RequestMapping("/selectAllCourse")
-    public String selectAllCourse(Course course,Model model) {
-        model.addAttribute("selectAllCourse",courseService.selectAllCourse(course));
-        return  "menuClassifies";
+    @RequestMapping("/selectAllCourseAndPage")
+    public String selectAllCourse(Condition condition, Model model) {
+        model.addAttribute("selectAllCourse",courseService.selectAllCourseAndPage(condition));
+        return "menuClassifiesAndPage";
     }
 /* 查询上传的菜
     @RequestMapping("selectCourse/{c_id}")
