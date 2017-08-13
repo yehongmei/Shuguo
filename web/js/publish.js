@@ -19,7 +19,7 @@ $(function () {
         var operation=$("#c_operation").val();
         $.post("addCourse", {c_name:name,c_type:type,c_operation:operation},function (data) {
             if (data){
-                window.location.href="jsp/selectCourse.jsp";
+                window.location.href="../jsp/selectCurrentCourse.jsp";
                 clearHtml();
                 $("#c_name").val("");
                 $("#c_type").val("");

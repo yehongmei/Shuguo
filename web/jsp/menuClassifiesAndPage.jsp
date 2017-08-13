@@ -17,14 +17,15 @@
     <script src="../resource/jquery-3.2.0.js"></script>
     <script src="../resource/bootstrap-3.3.7/dist/js/bootstrap.js"></script>
     <script src="../js/newRecipe.js"></script>
+    <script src="../js/menuClassifiesAndPage.js"></script>
 </head>
 <body>
     <%
-        CoursePaging coursePage=(CoursePaging)request.getAttribute("selectAllCourse");
+        CoursePaging coursePage=(CoursePaging)request.getAttribute("selectCoursePaging");
         int pageNumber = coursePage.getPageNumber();
         List<Course> courses = coursePage.getCourses();
+        int currentPage = coursePage.getCurrentPage();
     %>
-
     <!--头部开始-->
     <div id="header"></div>
     <!--头部结束-->
@@ -45,16 +46,26 @@
         </div>
         <ul class="pagination pagination-md">
             <li>
-                <a href="selectAllCourseAndPage?c_type=家常菜谱&pageNumber=<%=pageNumber-1%>"aria-label="Previous">
-                    <span aria-hidden="true">上一页</span>
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
             <%for(int i=1;i<=pageNumber;i++){%>
-            <li class="page">  <a href="selectAllCourseAndPage?c_type=家常菜谱&pageNumber=<%=i%>"><%=i%></a></li>
+
+            <li class="page">
+                <a href="selectAllCourseAndPage?c_type=<%=courses.get(0).getC_type()%>&pageNumber=<%=i%>">
+                    <% if(currentPage==i){ %>
+                            <span class="current"><%=i%></span></a>
+                       <% }else{%>
+                            <span ><%=i%></span></a>
+                    <%}%>
+
+            </li>
             <%}%>
+
             <li>
-                <a href="selectAllCourseAndPage?c_type=家常菜谱&pageNumber=<%=pageNumber+1%>" aria-label="Next">
-                    <span aria-hidden="true">下一页</span>
+                <a href="" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>
         </ul>

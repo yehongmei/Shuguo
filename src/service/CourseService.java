@@ -16,7 +16,10 @@ public class CourseService {
     /*public  Course selectCourse(Integer c_id){ return courseMapper.selectCourse(c_id); }*/
     public  boolean updateCoursePraise(Integer c_id){return courseMapper.updateCoursePraise(c_id)>0;}
     public CoursePaging selectAllCourseAndPage (Condition condition){
+        int pageNumber=condition.getPageNumber();
+        condition.setCuPageNumber((pageNumber-1)*14);
         List<Course> courses=courseMapper.selectAllCourse(condition);
+
         int count=courseMapper.selectPageCount(condition);
          /*向上取整*/
         double page= Math.ceil(count/14.0);
@@ -25,6 +28,8 @@ public class CourseService {
         CoursePaging coursePaging=new CoursePaging();
         coursePaging.setCourses(courses);
         coursePaging.setPageNumber(allPage);
+        coursePaging.setCurrentPage(condition.getPageNumber());
+
         return coursePaging;
     }
 

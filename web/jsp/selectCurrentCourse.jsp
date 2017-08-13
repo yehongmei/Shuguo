@@ -8,15 +8,15 @@
 <html>
 <head>
     <base href="<%=basePath%>">
-    <title>查看上传的菜</title>
+    <title>查看当前上传的菜</title>
     <link rel="icon"  type="image/x-icon" href="../images/title_logo.ico">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/footer.css">
-    <link rel="stylesheet" href="../css/selectCourse.css">
+    <link rel="stylesheet" href="../css/selectCurrentCourse.css">
     <link rel="stylesheet" href="../resource/bootstrap-3.3.7/dist/css/bootstrap.css">
     <script src="../resource/jquery-3.2.0.js"></script>
     <script src="../resource/bootstrap-3.3.7/dist/js/bootstrap.js"></script>
-    <script src="../js/selectCourse.js"></script>
+    <script src="../js/selectCurrentCourse.js"></script>
 </head>
 <body>
 <%

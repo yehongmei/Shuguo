@@ -78,7 +78,7 @@ public class CourseController {
     /*查询属于一种类型的菜*/
     @RequestMapping("/selectAllCourseAndPage")
     public String selectAllCourse(Condition condition, Model model) {
-        model.addAttribute("selectAllCourse",courseService.selectAllCourseAndPage(condition));
+        model.addAttribute("selectCoursePaging",courseService.selectAllCourseAndPage(condition));
         return "menuClassifiesAndPage";
     }
 /* 查询上传的菜
