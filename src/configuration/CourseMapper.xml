@@ -11,7 +11,7 @@
         SELECT `user`.username,course.c_name,course.c_praise,course.c_operation,course.c_date  from course,user WHERE course.c_id=#{c_id} and course.u_id=`user`.u_id
     </select>
     <select id="selectAllCourse" resultType="entities.Course">
-      SELECT c_type,c_firstImage,c_name from course WHERE c_type=#{c_type} limit #{cuPageNumber},14;
+      SELECT c_type,c_firstImage,c_name from course WHERE c_type=#{c_type} limit #{calculationPageNumber},14;
     </select>
     <select id="selectPageCount" resultType="java.lang.Integer">
         SELECT  count(*) FROM course  WHERE c_type=#{c_type};

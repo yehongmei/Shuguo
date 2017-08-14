@@ -22,8 +22,11 @@
 <body>
     <%
         CoursePaging coursePage=(CoursePaging)request.getAttribute("selectCoursePaging");
-        int pageNumber = coursePage.getPageNumber();
+        /*总页数*/
+        int pageNumber = coursePage.getTotalPageNumber();
+        /*所有菜*/
         List<Course> courses = coursePage.getCourses();
+       /* 当前页*/
         int currentPage = coursePage.getCurrentPage();
     %>
     <!--头部开始-->
@@ -53,7 +56,7 @@
             <%for(int i=1;i<=pageNumber;i++){%>
 
             <li class="page">
-                <a href="selectAllCourseAndPage?c_type=<%=courses.get(0).getC_type()%>&pageNumber=<%=i%>">
+                <a href="selectAllCourseAndPage?c_type=<%=courses.get(0).getC_type()%>&selectPageNumber=<%=i%>">
                     <% if(currentPage==i){ %>
                             <span class="current"><%=i%></span></a>
                        <% }else{%>
@@ -64,7 +67,7 @@
             <%}%>
 
             <li>
-                <a href="" aria-label="Next">
+                <a href="#" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>
