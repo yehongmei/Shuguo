@@ -36,7 +36,8 @@
         </div>
         <div class="content">
                 <div class="menu_name">
-                    <input type="text" class="form-control" name="c_name" id="c_name" placeholder="菜谱名称">
+                    <input type="text" class="form-control" name="c_name" id="c_name" placeholder="菜谱名称" onblur="checkLength();">
+                    <span class="validate_info"></span>
                 </div>
                 <select id="c_type" name="c_type" class="form-control" >
                     <option value="家常菜谱">家常菜谱</option>

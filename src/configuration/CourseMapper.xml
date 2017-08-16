@@ -7,14 +7,30 @@
     <update id="updateCoursePraise">
       UPDATE course SET c_praise=c_praise+1 where c_id=#{c_id};
     </update>
-    <select id="selectCourse" resultType="entities.Course">
+    <!--映射-->
+    <resultMap type="entities.Course"  id="courseResultMap">
+        <id property="c_id" column="c_id"></id>
+        <result property="c_date" column="c_date"></result>
+        <result property="c_firstImage" column="c_firstImage"></result>
+        <result property="c_name" column="c_name"></result>
+        <result property="c_operation" column="c_operation"></result>
+        <result property="c_praise" column="c_praise"></result>
+        <result property="c_type" column="c_type"></result>
+        <association property="user" column="u_id" javaType="entities.User">
+            <result property="username" column="username"></result>
+        </association>
+    </resultMap>
+    <select id="selectCourse" resultMap="courseResultMap">
         SELECT `user`.username,course.c_name,course.c_praise,course.c_operation,course.c_date  from course,user WHERE course.c_id=#{c_id} and course.u_id=`user`.u_id
     </select>
     <select id="selectAllCourse" resultType="entities.Course">
-      SELECT c_type,c_firstImage,c_name from course WHERE c_type=#{c_type} limit #{calculationPageNumber},14;
+      SELECT c_id,c_type,c_firstImage,c_name from course WHERE c_type=#{c_type} limit #{calculationPageNumber},14;
     </select>
     <select id="selectPageCount" resultType="java.lang.Integer">
         SELECT  count(*) FROM course  WHERE c_type=#{c_type};
+    </select>
+    <select id="selectNewCate" resultType="entities.Course">
+        SELECT c_name,c_type,c_date FROM course ORDER BY c_date DESC LIMIT 0,10
     </select>
 
 </mapper>

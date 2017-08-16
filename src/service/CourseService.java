@@ -13,9 +13,8 @@ public class CourseService {
     @Autowired
     private CourseMapper courseMapper;
     public  boolean insertCourse(Course course){return courseMapper.insertCourse(course)>0;}
-    /*public  Course selectCourse(Integer c_id){ return courseMapper.selectCourse(c_id); }*/
+    public  Course selectCourse(Course course){return courseMapper.selectCourse(course);}
     public  boolean updateCoursePraise(Integer c_id){return courseMapper.updateCoursePraise(c_id)>0;}
-
     public CoursePaging selectAllCourseAndPage (Condition condition){
         /*查询第几页*/
         int pageNumber=condition.getSelectPageNumber();
@@ -38,5 +37,6 @@ public class CourseService {
 
         return coursePaging;
     }
+    public  List<Course> selectNewCate(){return  courseMapper.selectNewCate();}
 
 }

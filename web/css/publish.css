@@ -26,16 +26,24 @@
 }
 .menu_name input{
     margin-top: 20px;
-    width: 630px;
+    width: 600px;
     height: 48px;
 }
+.menu_name .validate_info{
+    display: block;
+    width: 130px;
+    height: 30px;
+    text-align: center;
+    margin-left: 600px;
+    margin-top: -40px;
+}
 .content select{
-    width: 630px;!important;
+    width: 600px;!important;
     height: 48px;
     margin-left: 70px;
 }
 .froala_editor{
-    width: 630px;
+    width: 600px;
     margin-top: 20px;
     margin-left: 70px;
 }

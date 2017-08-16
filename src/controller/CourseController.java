@@ -81,11 +81,22 @@ public class CourseController {
         model.addAttribute("selectCoursePaging",courseService.selectAllCourseAndPage(condition));
         return "menuClassifiesAndPage";
     }
-/* 查询上传的菜
-    @RequestMapping("selectCourse/{c_id}")
+  /* *//*查询上传的菜*//*
+   @RequestMapping("selectCourse/{c_id}")
     public String selectCourse(@PathVariable("c_id") Integer c_id,Model model) {
         model.addAttribute("selectCourseName",courseService.selectCourse(c_id));
-        return "selectCourse";
+       return "selectCourse";
     }*/
-
+   //*查询上传的菜*//*
+   @RequestMapping("/selectCourse")
+    public String selectCourse(Course course,HttpSession session,Model model) {
+        model.addAttribute("selectCourseName",courseService.selectCourse(course));
+       return "selectCource";
+    }
+   /* 查询最新美食*/
+   @RequestMapping("/selectNewCate")
+    public  String selectNewCate(Model model){
+       model.addAttribute("selectNewCateName",courseService.selectNewCate());
+       return "newCate";
+   }
 }

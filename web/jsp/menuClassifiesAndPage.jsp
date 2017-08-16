@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="../css/menuClassifiesAndPage.css">
     <script src="../resource/jquery-3.2.0.js"></script>
     <script src="../resource/bootstrap-3.3.7/dist/js/bootstrap.js"></script>
-    <script src="../js/newRecipe.js"></script>
+    <script src="../js/newCate.js"></script>
     <script src="../js/menuClassifiesAndPage.js"></script>
 </head>
 <body>
@@ -40,7 +40,7 @@
                 Course course=courses.get(i);
             %>
             <ul class="new_recipes_list">
-                <li><a href="">
+                <li><a href="selectCourse?c_id=<%=course.getC_id()%>">
                     <img src="<%=course.getC_firstImage()%>" height="170" width="215"/>
                     <p><%=course.getC_name()%></p></a>
                 </li>

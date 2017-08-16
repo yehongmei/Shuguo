@@ -30,7 +30,21 @@ $(function () {
         } );
     });
 });
+
 function  clearHtml() {
     /*将编辑器的值清空*/
     editor.froalaEditor('html.set', '');
+
+    }
+function checkLength(){
+    $(".menu_name>span").text("");
+    var c_name=$("#c_name").val();
+    if(c_name.length>10&&c_name.length<15){
+        $(".menu_name>span").text("正确");
+        return true;
+    }
+    else{
+        $(".menu_name>span").text("长度为6-16个字符");
+        return false;
+    }
 }

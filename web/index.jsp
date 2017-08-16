@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/newRecipe.css">
     <link rel="stylesheet" href="resource/bootstrap-3.3.7/dist/css/bootstrap.css">
     <script src="resource/jquery-3.2.0.js"></script>
     <script src="resource/bootstrap-3.3.7/dist/js/bootstrap.js"></script>
@@ -145,7 +144,7 @@
     </div>
     <!--中部结束-->
     <!--底部开始-->
-    <footer id="footer"></footer>
+    <footer id="footer" style="clear: both"></footer>
     <!--底部结束-->
 </body>
 </html>

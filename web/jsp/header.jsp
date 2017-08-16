@@ -1,12 +1,8 @@
 <%@ page import="entities.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-%>
+
 <html>
 <head>
-    <base href="<%=basePath%>">
     <title>蔬果头部</title>
     <link rel="icon"  type="image/x-icon" href="images/title_logo.ico">
 </head>
@@ -19,18 +15,18 @@
                 <img src="images/logo.png" alt="logo"/>
             </div>
             <ul id="nav">
-                <li><a href="#"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
+                <li><a href="../index.jsp"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-book"></span> 菜谱</a>
                     <ul class="two_level_menu">
                         <li><a href="selectAllCourseAndPage?c_type=家常菜谱&selectPageNumber=1">家常菜谱</a></li>
-                        <li><a href="">特色面食</a></li>
-                        <li><a href="">八大菜系</a></li>
-                        <li><a href="">四季食谱</a></li>
+                        <li><a href="selectAllCourseAndPage?c_type=特色面食&selectPageNumber=1">特色面食</a></li>
+                        <li><a href="selectAllCourseAndPage?c_type=八大菜系&selectPageNumber=1">八大菜系</a></li>
+                        <li><a href="selectAllCourseAndPage?c_type=四季食谱&selectPageNumber=1">四季食谱</a></li>
                     </ul>
                 </li>
                 <li><a href="#"><span class="glyphicon  glyphicon-expand"></span> 美食专题</a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-heart-empty"></span> 精选菜谱</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-certificate"></span> 最新美食</a></li>
+                <li><a href="selectNewCate"><span class="glyphicon glyphicon-certificate"></span> 最新美食</a></li>
             </ul>
          <form>
                 <input type="text" class="form-control" placeholder="搜索菜谱、菜单">

@@ -7,8 +7,9 @@ import java.util.List;
 
 public interface CourseMapper {
    int insertCourse(Course course);
-/*   public  Course selectCourse(Integer c_id);*/
+   Course selectCourse(Course course);
    int updateCoursePraise(Integer c_id);
    List<Course> selectAllCourse(Condition condition);
    int selectPageCount(Condition condition);
+   List<Course> selectNewCate();
 }
