@@ -40,8 +40,8 @@ public class UserController {
        List<Course> courses= courseService.selectIndexNewCate();
         session.setAttribute("indexNewCateName",courses);
         /*查询index界面的精选美食*/
-        List<Course> choiceCourse= courseService.choiceCourse();
-        session.setAttribute("choiceCourseName",choiceCourse);
+        List<Course> choiceCourse= courseService.selectIndexchoiceCourse();
+        session.setAttribute("selectIndexchoiceCourseName",choiceCourse);
        return newUser!=null;
     }
    /* 点击发布，判断用户是否已经登录，如果已登录就跳到发布页面，反之，进入用户登录*/

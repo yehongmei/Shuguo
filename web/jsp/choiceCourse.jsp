@@ -6,7 +6,7 @@
 <html>
 <head>
     <base href="<%=basePath%>">
-    <title>Title</title>
+    <title>精选菜谱</title>
 </head>
 <body>
 

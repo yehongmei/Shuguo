@@ -60,7 +60,7 @@ public class CourseService {
     public  List<Course> selectIndexNewCate(){
         return courseMapper.selectIndexNewCate();
     }
-    public  List<Course> choiceCourse(){
-        return courseMapper.choiceCourse();
+    public  List<Course> selectIndexchoiceCourse(){
+        return courseMapper.selectIndexchoiceCourse();
     }
 }

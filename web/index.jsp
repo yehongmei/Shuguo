@@ -24,7 +24,7 @@
 <body>
    <%
        List<Course> courses=(List<Course>) session.getAttribute("indexNewCateName");
-       List<Course> choiceCourses=(List<Course>) session.getAttribute("choiceCourseName");
+       List<Course> choiceCourses=(List<Course>) session.getAttribute("selectIndexchoiceCourseName");
     %>
     <!--头部开始-->
     <div id="header"></div>

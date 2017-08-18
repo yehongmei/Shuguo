@@ -35,7 +35,7 @@
     <select id="selectIndexNewCate" resultType="entities.Course">
         SELECT c_id,c_name,c_type,c_firstImage FROM course ORDER BY c_date DESC LIMIT 0,6
     </select>
-    <select id="choiceCourse" resultType="entities.Course">
+    <select id="selectIndexchoiceCourse" resultType="entities.Course">
         SELECT c_id,c_name,c_firstImage FROM course ORDER BY c_praise DESC LIMIT 0,12
     </select>
 </mapper>
