@@ -41,7 +41,7 @@
             %>
             <ul class="new_recipes_list">
                 <li><a href="selectCourse?c_id=<%=course.getC_id()%>">
-                    <img src="<%=course.getC_firstImage()%>" height="170" width="215"/>
+                    <img  class="img" src="<%=course.getC_firstImage()%>" height="170" width="215"/>
                     <p><%=course.getC_name()%></p></a>
                 </li>
             </ul>

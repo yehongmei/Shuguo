@@ -1,4 +1,6 @@
 <%@ page import="entities.User" %>
+<%@ page import="java.util.List" %>
+<%@ page import="entities.Course" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String path = request.getContextPath();
@@ -20,6 +22,10 @@
     <script src="js/index.js"></script>
 </head>
 <body>
+   <%
+       List<Course> courses=(List<Course>) session.getAttribute("indexNewCateName");
+       List<Course> choiceCourses=(List<Course>) session.getAttribute("choiceCourseName");
+    %>
     <!--头部开始-->
     <div id="header"></div>
     <!--头部结束-->
@@ -91,14 +97,13 @@
             </div>
             <div class="new_recipes">
                 <h4 class="new_recipes_font">新秀菜谱</h4>
+                <% for(int i=0;i<courses.size();i++){
+                    Course course=courses.get(i);
+                %>
                 <ul class="new_recipes_list">
-                    <li><a href=""><img src="images/newRecipes1.jpg" height="140" width="180"/><p>面包机版自制纳豆怎么做好吃 家常面包机版自制纳豆的做法</p></a></li>
-                    <li><a href=""><img src="images/newRecipes2.jpg" height="140" width="180"/><p>南瓜吐司怎么做好吃 南瓜吐司最正宗的做法</p></a></li>
-                    <li><a href=""><img src="images/newRecipes3.jpg" height="140" width="180"/><p>肉馅苦瓜怎么做好吃 家常肉馅苦瓜的做法</p></a></li>
-                    <li><a href=""><img src="images/newRecipes4.jpg" height="140" width="180"/><p>怎么做吐司底披萨最好吃 吐司底披萨怎么做好吃</p></a></li>
-                    <li><a href=""><img src="images/newRecipes5.jpg" height="140" width="180"/><p>红焖排骨的做法</p></a></li>
-                    <li><a href=""><img src="images/newRecipes6.jpg" height="140" width="180"/><p>怎么做土豆丝煎饼最好吃 土豆丝煎饼怎么做好吃</p></a></li>
+                    <li><a href="selectCourse?c_id=<%=course.getC_id()%>"><img src="<%=course.getC_firstImage()%>" height="150" width="190"/><p><%=course.getC_name()%></p></a></li>
                 </ul>
+               <%}%>
             </div>
             <div class="hot_menu">
                 <h4 class="hot_menu_font">热门菜谱</h4>
@@ -125,20 +130,14 @@
             </div>
             <div class="choice_recipes">
                 <h4 class="choice_recipes_font">精选菜谱</h4>
+                <%
+                    for(int i=0;i<choiceCourses.size();i++){
+                        Course choiceCourse=choiceCourses.get(i);
+                %>
                 <ul class="choice_recipes_list">
-                    <li><a href="#"><img src="images/choice_recipes1.png" height="190" width="240"/><p>田螺的做法大全 ​美味田螺这样做让你越吃越上瘾</p></a></li>
-                    <li><a href="#"><img src="images/choice_recipes2.png" height="190" width="240"/><p>蚕豆的做法大全 那些年我们的美味零食</p></a></li>
-                    <li><a href="#"><img src="images/choice_recipes3.png" height="190" width="240"/><p>黄花菜的做法大全 想健脑补脑清心明目就吃黄花菜吧</p></a></li>
-                    <li><a href="#"><img src="images/choice_recipes4.jpg" height="190" width="240"/><p>干贝的做法大全 做菜时加上它会使饭菜更鲜香营养更丰富</p></a></li>
-                    <li><a href="#"><img src="images/choice_recipes5.png" height="190" width="240"/><p>家常菜做法大全 六道简单好吃又容易做的家常菜</p></a></li>
-                    <li><a href="#"><img src="images/choice_recipes6.png" height="190" width="240"/><p>炖鸡的做法大全 怎样炖鸡肉好吃汤好喝</p></a></li>
-                    <li><a href="#"><img src="images/choice_recipes7.png" height="190" width="240"/><p>煎牛排的做法大全，煎出极品牛排几需要掌握几个技巧</p></a></li>
-                    <li><a href="#"><img src="images/choice_recipes8.png" height="190" width="240"/><p>牛扎糖的做法大全 自制浓香四溢的牛轧糖</p></a></li>
-                    <li><a href="#"><img src="images/choice_recipes9.png" height="190" width="240"/><p>水煮肉片的做法大全 最好的美味就是家人吃的开心舒服</p></a></li>
-                    <li><a href="#"><img src="images/choice_recipes10.png" height="190" width="240"/><p>萝卜的做法大全 效果赛人参的全民家常菜</p></a></li>
-                    <li><a href="#"><img src="images/choice_recipes9.png" height="190" width="240"/><p>水煮肉片的做法大全 最好的美味就是家人吃的开心舒服</p></a></li>
-                    <li><a href="#"><img src="images/choice_recipes10.png" height="190" width="240"/><p>萝卜的做法大全 效果赛人参的全民家常菜</p></a></li>
+                    <li><a href="selectCourse?c_id=<%=choiceCourse.getC_id()%>"><img src="<%=choiceCourse.getC_firstImage()%>" height="190" width="240"/><p><%=choiceCourse.getC_name()%></p></a></li>
                 </ul>
+                <%}%>
             </div>
         </div>
     </div>

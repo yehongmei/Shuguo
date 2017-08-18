@@ -26,7 +26,7 @@
     margin-left: 20px;
 }
 .content_left_content{
-   padding: 0px 0 0 5px ;
+    padding: 0px 0 0 5px ;
     width: 670px;
     margin: auto;
     border-bottom: solid 1px #EEEEEE;
@@ -34,11 +34,20 @@
     color: #666666;
     height: 40px;
 }
-.content_left_content div{
+.content_left_content li{
+    list-style: none;
    padding: 10px 10px 10px 0px;
 }
+.content_left_content li p{
+    width: 400px;
+
+}
 .content_left_content span{
-    margin-left: 230px;
+    position: relative;
+    top: -30px;
+    left: 580px;
+
+
 }
 .content_right{
     width: 370px;

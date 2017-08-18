@@ -12,9 +12,15 @@ import java.util.List;
 public class CourseService {
     @Autowired
     private CourseMapper courseMapper;
-    public  boolean insertCourse(Course course){return courseMapper.insertCourse(course)>0;}
-    public  Course selectCourse(Course course){return courseMapper.selectCourse(course);}
-    public  boolean updateCoursePraise(Integer c_id){return courseMapper.updateCoursePraise(c_id)>0;}
+    public  boolean insertCourse(Course course){
+        return courseMapper.insertCourse(course)>0;
+    }
+    public  Course selectCourse(Course course){
+        return courseMapper.selectCourse(course);
+    }
+    public  boolean updateCoursePraise(Integer c_id){
+        return courseMapper.updateCoursePraise(c_id)>0;
+    }
     public CoursePaging selectAllCourseAndPage (Condition condition){
         /*查询第几页*/
         int pageNumber=condition.getSelectPageNumber();
@@ -37,6 +43,24 @@ public class CourseService {
 
         return coursePaging;
     }
-    public  List<Course> selectNewCate(){return  courseMapper.selectNewCate();}
-
+    public  List<Course> selectNewCate(){
+        /*查询所有新菜谱*/
+        List<Course> courses= courseMapper.selectNewCate();
+        /*Course是类型，course是变量名，courses是所有新菜谱*/
+        for (Course course:courses){
+            /*将日期获取出来*/
+            String date = course.getC_date();
+            /*截取值*/
+            date = date.substring(0,10);
+            /*将截取的值添加到日期*/
+            course.setC_date(date);
+        }
+        return  courses;
+    }
+    public  List<Course> selectIndexNewCate(){
+        return courseMapper.selectIndexNewCate();
+    }
+    public  List<Course> choiceCourse(){
+        return courseMapper.choiceCourse();
+    }
 }

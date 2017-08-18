@@ -25,6 +25,18 @@
 .new_recipes_list img{
     border-radius: 5px;
 }
+.new_recipes_list .img:hover{
+    animation:menuImg 1s;
+    height: 170px;
+    width:215px;
+  /*  animation-fill-mode规定对象动画时间之外的状态。forwards当动画完成后，保持最后一个属性值（在最后一个关键帧中定义）。*/
+    animation-fill-mode: forwards;
+}
+@keyframes menuImg
+{
+    from {transform:scale(1.0,1.0);;}
+    to {transform:scale(1.1,1.1);}
+}
 .new_recipes_list li a{
     color: #666666;
 }

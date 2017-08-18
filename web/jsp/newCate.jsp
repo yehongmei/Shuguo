@@ -31,17 +31,17 @@
                 <h4 class="content_left_top">
                     最新菜谱
                 </h4>
-                <%
+               <%
                     for (int i = 0; i < courses.size(); i++) {
                         Course course = courses.get(i);
                 %>
-                <div class="content_left_content">
-                    <div>
-                        <%=course.getC_name()%>
+                <ul class="content_left_content">
+                    <li>
+                        <p> <%=course.getC_name()%></p>
                         <span><%=course.getC_date()%></span>
-                    </div>
-                </div>
-                <%
+                    </li>
+                </ul>
+               <%
                     }
                 %>
             </div>
