@@ -25,13 +25,13 @@ public class CourseService {
         /*查询第几页*/
         int pageNumber=condition.getSelectPageNumber();
         /*计算后的页数*/
-        condition.setCalculationPageNumber((pageNumber-1)*14);
+        condition.setCalculationPageNumber((pageNumber-1)*16);
         /*根据条件查询菜*/
         List<Course> courses=courseMapper.selectAllCourse(condition);
         /*根据菜的类型查询菜的条数*/
         int count=courseMapper.selectPageCount(condition);
          /*计算页数向上取整*/
-        double page= Math.ceil(count/14.0);
+        double page= Math.ceil(count/16.0);
         /*实型转化成整型*/
         int allPage=(int)page;
         /*创建一个CoursePaging对象*/
@@ -57,10 +57,37 @@ public class CourseService {
         }
         return  courses;
     }
+    /*查询index页面的最新菜谱*/
     public  List<Course> selectIndexNewCate(){
         return courseMapper.selectIndexNewCate();
     }
+    /*查询index页面的精选菜谱*/
     public  List<Course> selectIndexchoiceCourse(){
         return courseMapper.selectIndexchoiceCourse();
     }
+
+    public CoursePaging  selectChoiceCourseAndPage(Condition condition){
+        int pageNumber=condition.getSelectPageNumber();
+        condition.setCalculationPageNumber((pageNumber-1)*32);
+        /*查询菜的条数*/
+        int count=courseMapper.selectChoicePageCount();
+         /*计算页数向上取整*/
+        double page= Math.ceil(count/32.0);
+        /*实型转化成整型*/
+        int allPage=(int)page;
+           /*查询菜*/
+        List<Course> courses=courseMapper.selectChoiceCourse(condition);
+        /*创建一个CoursePaging对象*/
+        CoursePaging coursePaging=new CoursePaging();
+        coursePaging.setCourses(courses);
+        coursePaging.setTotalPageNumber(allPage);
+        /*查询第几页设置为当前页*/
+        coursePaging.setCurrentPage(condition.getSelectPageNumber());
+        return coursePaging;
+    }
+        /*主界面模糊搜索*/
+    public List<Course> fuzzySearch(Course course){
+        return courseMapper.fuzzySearch(course);
+    }
+
 }

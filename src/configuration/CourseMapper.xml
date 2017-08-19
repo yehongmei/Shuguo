@@ -24,7 +24,7 @@
         SELECT `user`.username,course.c_id,course.c_name,course.c_praise,course.c_operation,course.c_date  from course,user WHERE course.c_id=#{c_id} and course.u_id=`user`.u_id
     </select>
     <select id="selectAllCourse" resultType="entities.Course">
-      SELECT c_id,c_type,c_firstImage,c_name from course WHERE c_type=#{c_type} limit #{calculationPageNumber},14;
+      SELECT c_id,c_type,c_firstImage,c_name from course WHERE c_type=#{c_type} limit #{calculationPageNumber},16;
     </select>
     <select id="selectPageCount" resultType="java.lang.Integer">
         SELECT  count(*) FROM course  WHERE c_type=#{c_type};
@@ -37,5 +37,19 @@
     </select>
     <select id="selectIndexchoiceCourse" resultType="entities.Course">
         SELECT c_id,c_name,c_firstImage FROM course ORDER BY c_praise DESC LIMIT 0,12
+    </select>
+    <select id="selectChoiceCourse" resultType="entities.Course">
+        SELECT c_id,c_praise,c_firstImage,c_name from course order by  c_praise desc  limit #{calculationPageNumber},32;
+    </select>
+    <select id="selectChoicePageCount" resultType="java.lang.Integer">
+        SELECT  count(*) FROM course ;
+    </select>
+    <select id="fuzzySearch" resultType="entities.Course">
+        select c_id,c_name from course
+        <where>
+            <if test="c_name!=null and c_name!=''">
+                c_name LIKE '%${c_name}%'
+            </if>
+        </where>
     </select>
 </mapper>

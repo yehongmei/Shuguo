@@ -25,11 +25,11 @@
                     </ul>
                 </li>
                 <li><a href="#"><span class="glyphicon  glyphicon-expand"></span> 美食专题</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-heart-empty"></span> 精选菜谱</a></li>
+                <li><a href="selectChoiceCourseAndPage?selectPageNumber=1"><span class="glyphicon glyphicon-heart-empty"></span> 精选菜谱</a></li>
                 <li><a href="selectNewCate"><span class="glyphicon glyphicon-certificate"></span> 最新美食</a></li>
             </ul>
          <form>
-                <input type="text" class="form-control" placeholder="搜索菜谱、菜单">
+                <input type="text" class="form-control" placeholder="想吃啥就搜啥">
                 <button  type="submit" class="btn btn-success"><sapn class="glyphicon glyphicon-search"></sapn></button>
                 <a  class="btn btn-success glyphicon glyphicon-plus" href="/publishAble">发布</a>
             </form >

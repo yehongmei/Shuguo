@@ -2,7 +2,7 @@ package entities;
 
 import java.util.List;
 
-/*分页后的菜*/
+/*通过类型,精选查询分页后的菜*/
 public class CoursePaging{
     /*所有菜*/
     private  List<Course> courses;

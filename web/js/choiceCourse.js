@@ -1,3 +1,4 @@
-/**
- * Created by Administrator on 2017/8/18.
- */
+$(function () {
+    $("#header").load("jsp/header.jsp");
+    $("#footer").load("jsp/footer.jsp");
+});

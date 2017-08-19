@@ -50,7 +50,7 @@
         <div class="content_right">
             <h4>美食推荐</h4>
             <ul class="list-right-recipe">
-                <li><img src="../images/small1.jpg" alt=""></li>
+                <li><img src="../images/small1.jpg" alt="" style="margin-left: 50px"></li>
             </ul>
         </div>
     </div>

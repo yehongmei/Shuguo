@@ -99,4 +99,15 @@ public class CourseController {
        model.addAttribute("selectNewCateName",courseService.selectNewCate());
        return "newCate";
    }
+    /*查询精选菜谱分页后的菜*/
+    @RequestMapping("/selectChoiceCourseAndPage")
+    public String selectChoiceCourseAndPage(Condition condition, Model model) {
+        model.addAttribute("selectChoiceCourseAndPageName",courseService.selectChoiceCourseAndPage(condition));
+        return "choiceCourse";
+    }
+    @RequestMapping("/fuzzySearch")
+        public String fuzzySearch(Course course, HttpSession session){
+        session.setAttribute("fuzzySearchName",courseService.fuzzySearch(course));
+        return "fuzzySearch";
+    }
 }
