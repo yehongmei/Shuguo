@@ -30,7 +30,7 @@
         int pageNumber=fuzzySearchCourse.getTotalPageNumber();
         /* 当前页*/
         int currentPage =fuzzySearchCourse.getCurrentPage();
-        /*模糊查询菜的数量*/
+        /*模糊查询菜的数量 */
         int fuzzySearchCount=fuzzySearchCourse.getFuzzySearchCount();
   %>
     <!--头部开始-->
