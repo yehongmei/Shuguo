@@ -106,9 +106,10 @@ public class CourseController {
         return "choiceCourse";
     }
     @RequestMapping("/fuzzySearch")
-        public String fuzzySearch(Course course,HttpSession session,Model model){
-        session.setAttribute("fuzzySearchCourse",course);
-        model.addAttribute("fuzzySearchName",courseService.fuzzySearch(course));
+        public String fuzzySearch(Condition condition,HttpSession session,Model model){
+        /*将文本框输入的数据放入session中*/
+        session.setAttribute("fuzzySearchCourse",condition);
+        model.addAttribute("fuzzySearchName",courseService.fuzzySearch(condition));
         return "fuzzySearch";
     }
 }

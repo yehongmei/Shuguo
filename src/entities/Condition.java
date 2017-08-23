@@ -1,12 +1,23 @@
 package entities;
 /*查询的条件*/
 public class Condition {
+    /*菜的名称*/
+    private String c_name;
     /*菜的类型*/
     private String c_type;
     /*计算后的页数*/
     private int calculationPageNumber;
     /*查询第几页*/
     private int selectPageNumber;
+
+    public String getC_name() {
+        return c_name;
+    }
+
+    public void setC_name(String c_name) {
+        this.c_name = c_name;
+    }
+
     public String getC_type() {
         return c_type;
     }

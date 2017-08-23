@@ -51,7 +51,7 @@
                 c_name LIKE '%${c_name}%'
             </if>
         </where>
-        LIMIT 0,6
+        LIMIT  #{calculationPageNumber},6
     </select>
     <select id="fuzzySearchCount" resultType="java.lang.Integer">
         SELECT count(*) FROM course where   c_name LIKE '%${c_name}%'

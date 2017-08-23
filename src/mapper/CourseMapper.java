@@ -16,6 +16,6 @@ public interface CourseMapper {
    List<Course> selectIndexchoiceCourse();
    List<Course> selectChoiceCourse(Condition condition);
    int selectChoicePageCount();
-   List<Course> fuzzySearch(Course course);
-   int fuzzySearchCount();
+   List<Course> fuzzySearch(Condition condition);
+   int fuzzySearchCount(Condition condition);
 }

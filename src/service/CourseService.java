@@ -1,6 +1,7 @@
 package service;
 import entities.Condition;
 import entities.Course;
+import entities.FuzzySearch;
 import entities.CoursePaging;
 import mapper.CourseMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,9 +87,23 @@ public class CourseService {
         return coursePaging;
     }
         /*主界面模糊搜索*/
-    public List<Course> fuzzySearch(Course course){
-
-        return courseMapper.fuzzySearch(course);
+    public FuzzySearch fuzzySearch(Condition condition){
+        int pageNumber=condition.getSelectPageNumber();
+        condition.setCalculationPageNumber((pageNumber-1)*6);
+        /*根据菜名查询菜的条数*/
+        int count=courseMapper.fuzzySearchCount(condition);
+         /*计算页数向上取整*/
+        double page= Math.ceil(count/6.0);
+        /*实型转化成整型作为最终的总页数*/
+        int allPage=(int)page;
+        /*查询菜*/
+        List<Course> courses= courseMapper.fuzzySearch(condition);
+        FuzzySearch fuzzySearch=new FuzzySearch();
+        fuzzySearch.setCourses(courses);
+        fuzzySearch.setCurrentPage(condition.getSelectPageNumber());
+        fuzzySearch.setTotalPageNumber(allPage);
+        fuzzySearch.setFuzzySearchCount(count);
+        return fuzzySearch;
     }
 
 

@@ -16,7 +16,7 @@
             </div>
             <ul id="nav">
                 <li><a href="../index.jsp"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-book"></span> 菜谱</a>
+                <li><a><span class="glyphicon glyphicon-book"></span> 菜谱</a>
                     <ul class="two_level_menu">
                         <li><a href="selectAllCourseAndPage?c_type=家常菜谱&selectPageNumber=1">家常菜谱</a></li>
                         <li><a href="selectAllCourseAndPage?c_type=特色面食&selectPageNumber=1">特色面食</a></li>
@@ -30,6 +30,7 @@
             </ul>
              <form action="/fuzzySearch" method="post">
                 <input type="text" name="c_name" class="form-control" placeholder="想吃啥就搜啥">
+                 <input type="hidden" name="selectPageNumber" value="1" >
                 <button  type="submit" class="btn btn-success"><sapn class="glyphicon glyphicon-search fuzzySearch"></sapn></button>
                 <a  class="btn btn-success glyphicon glyphicon-plus" href="/publishAble">发布</a>
             </form >
