@@ -87,7 +87,9 @@ public class CourseService {
     }
         /*主界面模糊搜索*/
     public List<Course> fuzzySearch(Course course){
+
         return courseMapper.fuzzySearch(course);
     }
+
 
 }

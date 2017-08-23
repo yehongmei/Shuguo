@@ -143,7 +143,7 @@
     </div>
     <!--中部结束-->
     <!--底部开始-->
-    <footer id="footer" style="clear: both"></footer>
+    <div id="footer" style="clear: both"></div>
     <!--底部结束-->
 </body>
 </html>
