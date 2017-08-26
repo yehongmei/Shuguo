@@ -17,6 +17,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 public class CourseController {
@@ -105,11 +106,16 @@ public class CourseController {
         model.addAttribute("selectChoiceCourseAndPageName",courseService.selectChoiceCourseAndPage(condition));
         return "choiceCourse";
     }
+    /*模糊搜索查询以及美食推荐（查询点赞最多的菜）*/
     @RequestMapping("/fuzzySearch")
         public String fuzzySearch(Condition condition,HttpSession session,Model model){
+        /*精选菜和美食推荐雷同*/
+        List<Course>  recommendCourse= courseService.selectIndexchoiceCourse();
+        session.setAttribute("selectRecommendCourseName",recommendCourse);
         /*将文本框输入的数据放入session中*/
         session.setAttribute("fuzzySearchCourse",condition);
         model.addAttribute("fuzzySearchName",courseService.fuzzySearch(condition));
         return "fuzzySearch";
     }
+
 }

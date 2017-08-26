@@ -36,8 +36,9 @@
                         Course course = courses.get(i);
                 %>
                 <ul class="content_left_content">
-                    <li>
+                    <li><a href="selectCourse?c_id=<%=course.getC_id()%>">
                         <p> <%=course.getC_name()%></p>
+                        </a>
                         <span><%=course.getC_date()%></span>
                     </li>
                 </ul>

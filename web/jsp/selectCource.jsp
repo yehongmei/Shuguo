@@ -37,7 +37,7 @@
             <div class="praise">
                 <a class="btn glyphicon glyphicon-thumbs-up"></a>赞<span id="praise"><%=course.getC_praise()%></span>
             </div>
-            <textarea  class="textarea" placeholder="忍不住想说两句"></textarea><input type="text" class="btn btn-success comment" value="评论">
+            <textarea  class="textarea" placeholder="忍不住想说两句"></textarea><input type="button" class="btn btn-success comment" value="评论">
             <div class="comment-title">评论</div>
             <div class="user_info">
                 <div class="user">

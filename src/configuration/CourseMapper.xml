@@ -30,7 +30,7 @@
         SELECT  count(*) FROM course  WHERE c_type=#{c_type};
     </select>
     <select id="selectNewCate" resultType="entities.Course">
-        SELECT c_name,c_type,c_date FROM course ORDER BY c_date DESC LIMIT 0,13
+        SELECT c_id,c_name,c_type,c_date FROM course ORDER BY c_date DESC LIMIT 0,13
     </select>
     <select id="selectIndexNewCate" resultType="entities.Course">
         SELECT c_id,c_name,c_type,c_firstImage FROM course ORDER BY c_date DESC LIMIT 0,6

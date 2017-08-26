@@ -21,9 +21,9 @@
 </head>
 <body>
   <%
-        /*将文本框输入的数据获取出来*/
+      /*将文本框输入的数据获取出来*/
       Condition fuzzySearch=(Condition) session.getAttribute("fuzzySearchCourse");
-        FuzzySearch fuzzySearchCourse=(FuzzySearch)request.getAttribute("fuzzySearchName");
+      FuzzySearch fuzzySearchCourse=(FuzzySearch)request.getAttribute("fuzzySearchName");
         /*根据条件查询的菜*/
         List<Course> courses=fuzzySearchCourse.getCourses();
         /*根据条件查询总页数*/
@@ -32,10 +32,13 @@
         int currentPage =fuzzySearchCourse.getCurrentPage();
         /*模糊查询菜的数量 */
         int fuzzySearchCount=fuzzySearchCourse.getFuzzySearchCount();
+        /*美食推荐*/
+        List<Course> recommendCourse=(List<Course>)session.getAttribute("selectRecommendCourseName");
   %>
     <!--头部开始-->
     <div id="header"></div>
     <!--头部结束-->
+    <!--内容开始-->
     <div id="all_content">
         <div class="content_top"><span class="glyphicon  glyphicon-home"></span>&nbsp;&nbsp;首页 > 搜索的结果</div>
         <div class="content">
@@ -54,15 +57,28 @@
                     Course course=courses.get(i);
                 %>
                 <ul class="content_left_content">
-                   <li><a href="#"><img src="<%=course.getC_firstImage()%>" alt=""><span><%=course.getC_name()%></span></a>
-                      <div> 分类:<a href="">美食专题 <%=course.getC_type()%></a></div>
+                   <li><a href="selectCourse?c_id=<%=course.getC_id()%>"><img src="<%=course.getC_firstImage()%>" alt=""><span><%=course.getC_name()%></span></a>
+                      <div> 分类:<a href="selectChoiceCourseAndPage?c_type=<%=course.getC_type()%>"> <%=course.getC_type()%></a></div>
                    </li>
                 </ul>
               <%}%>
 
             </div>
             <div class="content_right">
-                1
+                <h4>美食推荐</h4>
+                <%
+                    for(int i=0;i<recommendCourse.size();i++){
+                        Course recommendCourseName=recommendCourse.get(i);
+                %>
+                <ul>
+                    <li>
+                        <a href="">
+                            <img src="<%=recommendCourseName.getC_firstImage()%>" alt="" width="165px" height="130px">
+                            <span><%=recommendCourseName.getC_name()%></span>
+                        </a>
+                    </li>
+                </ul>
+                <%}%>
             </div>
         </div>
         <ul class="pagination pagination-md page">
@@ -83,6 +99,7 @@
         </ul>
     </div>
     <div id="footer" style="clear: both"></div>
-    <!--底部结束-->
+  <!--内容结束-->
+  <!--底部结束-->
 </body>
 </html>
