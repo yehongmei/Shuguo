@@ -40,7 +40,7 @@ function checkLength(){
     $(".menu_name>span").text("");
     var c_name=$("#c_name").val();
     if(c_name.length>10&&c_name.length<15){
-        $(".menu_name>span").text("正确");
+        $(".menu_name>span").text("正确的菜谱名");
         return true;
     }
     else{

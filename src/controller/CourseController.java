@@ -1,8 +1,5 @@
 package controller;
-import entities.Condition;
-import entities.Course;
-import entities.FilePathResponse;
-import entities.User;
+import entities.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -73,8 +70,20 @@ public class CourseController {
     /*通过菜的id修改点赞数*/
     @RequestMapping("updateCoursePraise/{c_id}")
     @ResponseBody
-    public boolean updateCoursePraise(@PathVariable("c_id") Integer c_id){
-        return  courseService.updateCoursePraise(c_id);
+    public boolean updateCoursePraise(@PathVariable("c_id") Integer c_id, HttpSession session, Praise praise) {
+        /*获取用户*/
+         User user=(User) session.getAttribute("user");
+        /* 将用户的id设置在菜表*/
+        praise.setU_id(user.getU_id());
+        /*查询用户是否点赞*/
+        Praise praiseUser = courseService.selectPraise(praise);
+        if (praiseUser != null) {
+            return  false;
+        } else {
+            courseService.updateCoursePraise(c_id);
+            courseService.insertPrise(praise);
+            return true;
+        }
     }
     /*查询属于一种类型的菜*/
     @RequestMapping("/selectAllCourseAndPage")

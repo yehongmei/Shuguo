@@ -4,9 +4,17 @@
     <insert id="insertCourse" useGeneratedKeys="true" keyProperty="c_id">
         INSERT INTO course (u_id,c_name,c_type,c_date,c_praise,c_operation,c_firstImage) VALUE (#{user.u_id},#{c_name},#{c_type},#{c_date},#{c_praise},#{c_operation},#{c_firstImage});
     </insert>
+    <!-- 修改点赞-->
     <update id="updateCoursePraise">
       UPDATE course SET c_praise=c_praise+1 where c_id=#{c_id};
     </update>
+    <!--查询点赞表是否存在该用户点赞-->
+    <select id="selectPraise" resultType="entities.Praise">
+        SELECT u_id,c_id from praise WHERE  u_id=#{u_id} and c_id=#{c_id};
+    </select>
+    <insert id="insertPraise">
+        INSERT  INTO praise (u_id, c_id) VALUE (#{u_id},#{c_id});
+    </insert>
     <!--映射-->
     <resultMap type="entities.Course"  id="courseResultMap">
         <id property="c_id" column="c_id"></id>
@@ -21,7 +29,7 @@
         </association>
     </resultMap>
     <select id="selectCourse" resultMap="courseResultMap">
-        SELECT `user`.u_id,`user`.username,course.c_id,course.c_name,course.c_praise,course.c_operation,course.c_date  from course,user WHERE course.c_id=#{c_id} and course.u_id=`user`.u_id
+        SELECT user.u_id,user.username,course.c_id,course.c_name,course.c_praise,course.c_operation,course.c_date  from course,user WHERE course.c_id=#{c_id} and course.u_id=`user`.u_id
     </select>
     <select id="selectAllCourse" resultType="entities.Course">
       SELECT c_id,c_type,c_firstImage,c_name from course WHERE c_type=#{c_type} limit #{calculationPageNumber},16;

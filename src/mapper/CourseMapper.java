@@ -2,6 +2,7 @@ package mapper;
 
 import entities.Condition;
 import entities.Course;
+import entities.Praise;
 
 import java.util.List;
 
@@ -9,6 +10,8 @@ public interface CourseMapper {
    int insertCourse(Course course);
    Course selectCourse(Course course);
    int updateCoursePraise(Integer c_id);
+   Praise selectPraise( Praise  praise);
+   int insertPraise(Praise  praise);
    List<Course> selectAllCourse(Condition condition);
    int selectPageCount(Condition condition);
    List<Course> selectNewCate();

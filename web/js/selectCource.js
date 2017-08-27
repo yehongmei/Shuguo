@@ -1,6 +1,3 @@
-/**
- * Created by Administrator on 2017/8/13.
- */
 $(function () {
     $("#header").load("jsp/header.jsp");
     $("#footer").load("jsp/footer.jsp");
@@ -14,7 +11,7 @@ $(function () {
                 $("#praise").text(test3);
             }
             else {
-                alert("失败");
+                $(".praise a").attr("title","已赞");
             }
         });
     });
@@ -22,9 +19,9 @@ $(function () {
         var comment=$(".textarea").val();
         var cid=$("#c_id").val();
         $.post("insertComment",{"course.c_id":cid,comment_content:comment},function (data) {
-            $(".user>.u_name").text(data.user.username);
-            $(".user>.time").text(data.comment_date);
-            $(".user_info>.content").text(data.comment_content);
+            $(".user>.u_name").append(data.user.username);
+            $(".user>.time").append(data.comment_date);
+            $(".user_info>.content").append(data.comment_content);
         });
 
     });

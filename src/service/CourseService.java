@@ -1,8 +1,5 @@
 package service;
-import entities.Condition;
-import entities.Course;
-import entities.FuzzySearch;
-import entities.CoursePaging;
+import entities.*;
 import mapper.CourseMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +16,8 @@ public class CourseService {
     public  Course selectCourse(Course course){
         return courseMapper.selectCourse(course);
     }
+    public Praise selectPraise(Praise praise){return  courseMapper.selectPraise(praise);}
+    public  int insertPrise(Praise praise){return  courseMapper.insertPraise( praise);}
     public  boolean updateCoursePraise(Integer c_id){
         return courseMapper.updateCoursePraise(c_id)>0;
     }
