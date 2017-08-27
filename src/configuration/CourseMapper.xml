@@ -21,7 +21,7 @@
         </association>
     </resultMap>
     <select id="selectCourse" resultMap="courseResultMap">
-        SELECT `user`.username,course.c_id,course.c_name,course.c_praise,course.c_operation,course.c_date  from course,user WHERE course.c_id=#{c_id} and course.u_id=`user`.u_id
+        SELECT `user`.u_id,`user`.username,course.c_id,course.c_name,course.c_praise,course.c_operation,course.c_date  from course,user WHERE course.c_id=#{c_id} and course.u_id=`user`.u_id
     </select>
     <select id="selectAllCourse" resultType="entities.Course">
       SELECT c_id,c_type,c_firstImage,c_name from course WHERE c_type=#{c_type} limit #{calculationPageNumber},16;
