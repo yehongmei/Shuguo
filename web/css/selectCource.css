@@ -66,13 +66,13 @@ content_left_top p>a{
     margin-bottom: 10px;
     text-indent: 10px;
 }
-.user_info{
+.all-discussion{
     margin-left: 60px;
 }
 .u_name {
     color: #00CC00;
     font-size: 14px;
-    margin-right: 20px;
+    margin-right: 8px;
 }
 .time {
     color: #aaa;

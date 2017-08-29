@@ -39,12 +39,8 @@
             </div>
             <textarea  class="textarea" placeholder="忍不住想说两句"></textarea><input type="button" class="btn btn-success comment" value="评论">
             <div class="comment-title">评论</div>
-            <div class="user_info">
-                <div class="user">
-                    <span class="u_name"></span>
-                    <span class="time"></span>
-                </div>
-                <div class="content"></div>
+            <div class="all-discussion">
+
             </div>
         </div>
         <div class="content_right">
