@@ -20,6 +20,7 @@
 <body>
 <%
     List<Course> courses=(List<Course>) request.getAttribute("selectNewCateName");
+    List<Course> choiceCourses=(List<Course>) session.getAttribute("selectchoiceCourse");
 %>
     <!--头部开始-->
     <div id="header"></div>
@@ -47,7 +48,20 @@
                 %>
             </div>
             <div class="content_right">
-                111
+                <h4>美食推荐</h4>
+                <%
+                    for(int i=0;i<choiceCourses.size();i++){
+                        Course choiceCourse=choiceCourses.get(i);
+                %>
+                <ul>
+                    <li>
+                        <a href="">
+                            <img src="<%=choiceCourse.getC_firstImage()%>" alt="" width="155px" height="125px">
+                            <span><%=choiceCourse.getC_name()%></span>
+                        </a>
+                    </li>
+                </ul>
+                <%}%>
             </div>
         </div>
     </div>

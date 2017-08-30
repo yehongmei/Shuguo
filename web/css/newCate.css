@@ -12,12 +12,12 @@
 }
 .content{
     width: 1100px;
-    height: 600px;
+    height: 1100px;
     margin: auto;
 }
 .content_left{
     width: 700px;
-    height: 600px;
+    height: 1070px;
     float: left;
     background-color: white;
 }
@@ -46,12 +46,34 @@
     position: relative;
     top: -30px;
     left: 580px;
-
-
 }
 .content_right{
     width: 370px;
-    height: 600px;
+    height: 1070px;
     float: right;
     background-color: white;
+}
+.content_right h4{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.content_right ul{
+    margin-left: 14px;
+}
+.content_right li{
+    width: 160px;
+    margin: 3px;
+    padding: 0px 10px 10px 5px;
+    float: left;
+    list-style: none;
+}
+
+.content_right span{
+    /*超出部分隐藏(overflow:hidden;)、强制在同一行显示(white-space: nowrap;)、省略号(text-overflow:ellipsis;)*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    display:block ;
+    padding-top: 8px;
+    color: #666666;
 }
