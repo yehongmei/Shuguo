@@ -1,5 +1,8 @@
 <%@ page import="entities.Course" %>
+<%@ page import="java.util.List" %>
+<%@ page import="entities.Comment" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -19,7 +22,8 @@
 </head>
 <body>
     <%
-        Course course=(Course)request.getAttribute("selectCourseName");
+        Course course=(Course)request.getAttribute("selectCourseAndComment");
+        List<Comment> comments=course.getComments();
     %>
     <input id="c_id" type="hidden" value="<%=course.getC_id()%>">
 <!--头部开始-->
@@ -31,7 +35,7 @@
         <div class="content_left">
             <div class="content_left_top">
                 <h3><%=course.getC_name()%></h3>
-                <p><a href="../index.jsp">蔬果美食</a>&nbsp;&nbsp;&nbsp;<%=course.getC_date()%>&nbsp;&nbsp;&nbsp;编辑:<%=course.getUser().getUsername()%></p>
+                <p><a href="../index.jsp">蔬果美食</a>&nbsp;&nbsp;&nbsp;<%=course.getC_date().substring(0,course.getC_date().length()-2)%>&nbsp;&nbsp;&nbsp;编辑:<%=course.getUser().getUsername()%></p>
             </div>
             <div class="middle_part"><%=course.getC_operation()%></div>
             <div class="praise">
@@ -40,8 +44,19 @@
             <textarea  class="textarea" placeholder="忍不住想说两句"></textarea><input type="button" class="btn btn-success comment" value="评论">
             <div class="comment-title">评论</div>
             <div class="all-discussion">
+                <%for(int i=0;i<comments.size();i++){
+                    Comment comment=comments.get(i);%>
 
+                <div class="user_info">
+                    <div class="user">
+                        <span class="u_name"><%=comment.getU_reviewer()%></span>
+                        <span class="time"><%=comment.getComment_date().substring(0,comment.getComment_date().length()-2)%></span>
+                    </div>
+                    <div class="content"><%=comment.getComment_content()%></div>
+                </div>
+                <% }%>
             </div>
+
         </div>
         <div class="content_right">
             <h4>美食推荐</h4>

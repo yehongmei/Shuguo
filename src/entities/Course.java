@@ -1,4 +1,6 @@
 package entities;
+import java.util.Date;
+import java.util.List;
 public class Course {
     private  int c_id;
     private  User user;
@@ -8,6 +10,7 @@ public class Course {
     private String c_type;
     private String c_date;
     private  String c_operation;
+    private List<Comment> comments;
     public int getC_id() {
         return c_id;
     }
@@ -32,14 +35,10 @@ public class Course {
     public void setC_type(String c_type) {
         this.c_type = c_type;
     }
-    public String getC_date() {
-        return c_date;
-    }
+    public String getC_date() {return c_date;}
+    public void setC_date(String c_date) {this.c_date = c_date;}
     public String getC_firstImage() {return c_firstImage;}
     public void setC_firstImage(String c_firstImage) {this.c_firstImage = c_firstImage;}
-    public void setC_date(String c_date) {
-        this.c_date = c_date;
-    }
     public String getC_operation() {
         return c_operation;
     }
@@ -52,4 +51,6 @@ public class Course {
     public void setUser(User user) {
         this.user = user;
     }
+    public List<Comment> getComments() {return comments;}
+    public void setComments(List<Comment> comments) {this.comments = comments;}
 }

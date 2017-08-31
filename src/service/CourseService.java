@@ -14,7 +14,8 @@ public class CourseService {
         return courseMapper.insertCourse(course)>0;
     }
     public  Course selectCourse(Course course){
-        return courseMapper.selectCourse(course);
+        Course course1 = courseMapper.selectCourseAndComment(course);
+        return course1;
     }
     public Praise selectPraise(Praise praise){return  courseMapper.selectPraise(praise);}
     public  int insertPrise(Praise praise){return  courseMapper.insertPraise( praise);}

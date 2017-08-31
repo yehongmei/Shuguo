@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import service.CourseService;
+import service.UserService;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
@@ -20,7 +22,6 @@ import java.util.List;
 public class CourseController {
     @Autowired
     private CourseService courseService;
-
     /*添加菜*/
     @RequestMapping("/addCourse")
     @ResponseBody
@@ -100,13 +101,16 @@ public class CourseController {
    //*查询上传的菜*//*
    @RequestMapping("/selectCourse")
     public String selectCourse(Course course,HttpSession session,Model model) {
-        model.addAttribute("selectCourseName",courseService.selectCourse(course));
+        model.addAttribute("selectCourseAndComment",courseService.selectCourse(course));
        return "selectCource";
     }
    /* 查询最新美食*/
    @RequestMapping("/selectNewCate")
-    public  String selectNewCate(Model model){
+    public  String selectNewCate(Model model,HttpSession session){
        model.addAttribute("selectNewCateName",courseService.selectNewCate());
+       /*查询精选美食,不分页*/
+       List<Course> choiceCourse= courseService.selectIndexchoiceCourse();
+       session.setAttribute("selectchoiceCourse",choiceCourse);
        return "newCate";
    }
     /*查询精选菜谱分页后的菜*/

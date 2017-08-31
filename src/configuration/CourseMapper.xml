@@ -15,22 +15,6 @@
     <insert id="insertPraise">
         INSERT  INTO praise (u_id, c_id) VALUE (#{u_id},#{c_id});
     </insert>
-    <!--映射-->
-    <resultMap type="entities.Course"  id="courseResultMap">
-        <id property="c_id" column="c_id"></id>
-        <result property="c_date" column="c_date"></result>
-        <result property="c_firstImage" column="c_firstImage"></result>
-        <result property="c_name" column="c_name"></result>
-        <result property="c_operation" column="c_operation"></result>
-        <result property="c_praise" column="c_praise"></result>
-        <result property="c_type" column="c_type"></result>
-        <association property="user" column="u_id" javaType="entities.User">
-            <result property="username" column="username"></result>
-        </association>
-    </resultMap>
-    <select id="selectCourse" resultMap="courseResultMap">
-        SELECT user.u_id,user.username,course.c_id,course.c_name,course.c_praise,course.c_operation,course.c_date  from course,user WHERE course.c_id=#{c_id} and course.u_id=`user`.u_id
-    </select>
     <select id="selectAllCourse" resultType="entities.Course">
       SELECT c_id,c_type,c_firstImage,c_name from course WHERE c_type=#{c_type} limit #{calculationPageNumber},16;
     </select>
@@ -38,7 +22,7 @@
         SELECT  count(*) FROM course  WHERE c_type=#{c_type};
     </select>
     <select id="selectNewCate" resultType="entities.Course">
-        SELECT c_id,c_name,c_type,c_date FROM course ORDER BY c_date DESC LIMIT 0,13
+        SELECT c_id,c_name,c_type,c_date FROM course ORDER BY c_date DESC LIMIT 0,25
     </select>
     <select id="selectIndexNewCate" resultType="entities.Course">
         SELECT c_id,c_name,c_type,c_firstImage FROM course ORDER BY c_date DESC LIMIT 0,6
@@ -63,5 +47,14 @@
     </select>
     <select id="fuzzySearchCount" resultType="java.lang.Integer">
         SELECT count(*) FROM course where   c_name LIKE '%${c_name}%'
+    </select>
+   <!-- 映射关系（相同字段不配置）-->
+    <resultMap id="courseResultMap"  type="entities.Course">
+        <id property="c_id" column="c_id"/>
+        <association property="user" column="u_id" select="mapper.UserMapper.selectUserById"/>
+        <collection property="comments" column="c_id" select="mapper.CommentMapper.selectByCid"/>
+    </resultMap>
+    <select id="selectCourseAndComment" resultMap="courseResultMap">
+        SELECT * from course WHERE c_id=#{c_id}
     </select>
 </mapper>

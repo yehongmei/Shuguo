@@ -22,18 +22,15 @@ public class CommentController {
     public  Comment insertComment(Comment comment, HttpSession session){
            /*获取当前时间*/
         Date date = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd  hh:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-dd  HH:mm:ss");
         String currentDate = sdf.format(date);
           /*将当前时间设置到评论表*/
         comment.setComment_date(currentDate);
 
         /*获取user对象*/
         User user = (User) session.getAttribute("user");
-        User userComment = new User();
-        userComment.setU_id(user.getU_id());
-        userComment.setUsername(user.getUsername());
         /*把用户名添加评论表*/
-        comment.setUser(userComment);
+        comment.setU_reviewer(user.getUsername());
         int a=commentService.insertComment(comment);
         return comment;
     }
