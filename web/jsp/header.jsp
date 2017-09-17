@@ -24,7 +24,7 @@
                         <li><a href="selectAllCourseAndPage?c_type=四季食谱&selectPageNumber=1">四季食谱</a></li>
                     </ul>
                 </li>
-                <li><a href="#"><span class="glyphicon  glyphicon-expand"></span> 美食专题</a></li>
+                <li><a><span class="glyphicon  glyphicon-expand"></span> 美食专题</a></li>
                 <li><a href="selectChoiceCourseAndPage?selectPageNumber=1"><span class="glyphicon glyphicon-heart-empty"></span> 精选菜谱</a></li>
                 <li><a href="selectNewCate"><span class="glyphicon glyphicon-certificate"></span> 最新美食</a></li>
             </ul>

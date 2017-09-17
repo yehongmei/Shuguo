@@ -1,5 +1,6 @@
 <%@ page import="entities.Course" %>
 <%@ page import="entities.Comment" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String path = request.getContextPath();
@@ -21,6 +22,7 @@
 <body>
 <%
     Course course= (Course) session.getAttribute("currentShowCourse");
+    List<Course> choiceCourses=(List<Course>) session.getAttribute("selectchoiceCourse");
 %>
 <input id="c_id" type="hidden" value="<%=course.getC_id()%>">
     <!--头部开始-->
@@ -38,7 +40,7 @@
                 <div class="praise">
                     <a class="btn glyphicon glyphicon-thumbs-up"></a>赞<span id="praise"><%=course.getC_praise()%></span>
                 </div>
-                <textarea  class="textarea" placeholder="忍不住想说两句"></textarea><input type="text" class="btn btn-success comment" value="评论">
+                <textarea  class="textarea" placeholder="忍不住想说两句"></textarea><input type="submit" class="btn btn-success comment" value="评论">
                 <div class="comment-title">评论</div>
                 <div class="user_info">
                     <div class="user">
@@ -50,9 +52,19 @@
             </div>
             <div class="content_right">
                 <h4>美食推荐</h4>
-                <ul class="list-right-recipe">
-                    <li><img src="../images/small1.jpg" alt=""></li>
+                <%
+                    for(int i=0;i<choiceCourses.size();i++){
+                        Course choiceCourse=choiceCourses.get(i);
+                %>
+                <ul>
+                    <li>
+                        <a href="selectCourseAndComment?c_id=<%=choiceCourse.getC_id()%>">
+                            <img src="<%=choiceCourse.getC_firstImage()%>" alt="" width="155px" height="125px">
+                            <span><%=choiceCourse.getC_name()%></span>
+                        </a>
+                    </li>
                 </ul>
+                <%}%>
             </div>
         </div>
     </div>

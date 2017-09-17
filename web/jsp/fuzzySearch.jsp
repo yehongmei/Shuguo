@@ -57,8 +57,9 @@
                     Course course=courses.get(i);
                 %>
                 <ul class="content_left_content">
-                   <li><a href="selectCourse?c_id=<%=course.getC_id()%>"><img src="<%=course.getC_firstImage()%>" alt=""><span><%=course.getC_name()%></span></a>
-                      <div> 分类:<a href="selectChoiceCourseAndPage?c_type=<%=course.getC_type()%>"> <%=course.getC_type()%></a></div>
+                   <li><a href="selectCourseAndComment?c_id=<%=course.getC_id()%>"><img src="<%=course.getC_firstImage()%>" alt=""><span><%=course.getC_name()%></span></a>
+                      <div class="type"> 分类:<a href="selectChoiceCourseAndPage?c_type=<%=course.getC_type()%>"> <%=course.getC_type()%></a></div>
+                       <div class="introduce"><%=course.getC_operation()%></div>
                    </li>
                 </ul>
               <%}%>

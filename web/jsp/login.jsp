@@ -34,10 +34,10 @@
                     <h4 class="right">已有账号<a href="jsp/register.jsp">直接注册></a></h4>
                     <table>
                         <tr>
-                            <td><input type="text" class="form-control" name="username" id="username" placeholder="请输入用户名" value="liutao"></td>
+                            <td><input type="text" class="form-control" name="username" id="username" placeholder="请输入用户名" value="yehongmei" ></td>
                         </tr>
                         <tr>
-                            <td><input type="password" class="form-control" name="password" id="password" placeholder="请输入密码" value="123456"></td>
+                            <td><input type="password" class="form-control" name="password" id="password" placeholder="请输入密码" value="123456" ></td>
                         </tr>
                     </table>
                     <span id="result"></span>

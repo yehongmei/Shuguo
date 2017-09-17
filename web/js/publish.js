@@ -17,7 +17,9 @@ $(function () {
         var name=$("#c_name").val();
         var type=$("#c_type").val();
         var operation=$("#c_operation").val();
-        $.post("addCourse", {c_name:name,c_type:type,c_operation:operation},function (data) {
+        var img=$('.froala_editor img:eq(0)').attr("src");
+        console.log(img);
+        $.post("addCourse", {c_firstImage:img,c_name:name,c_type:type,c_operation:operation},function (data) {
             if (data){
                 window.location.href="../jsp/selectCurrentCourse.jsp";
                 clearHtml();

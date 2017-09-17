@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -32,9 +33,6 @@ public class CourseController {
         String currentDate = sdf.format(date);
         /*将当前时间设置到菜表*/
         course.setC_date(currentDate);
-        /*获取第一张图片，将第一张设置course中*/
-        String firstImgPath = (String) session.getAttribute("firstImgPath");
-        course.setC_firstImage(firstImgPath);
         /*获取user对象*/
         User user = (User) session.getAttribute("user");
         User user1 = new User();
@@ -45,6 +43,9 @@ public class CourseController {
         boolean b=courseService.insertCourse(course);
         /*当前添加菜设置在session中*/
         session.setAttribute("currentShowCourse",course);
+        /*查询精选美食,不分页*/
+        List<Course> choiceCourse= courseService.selectIndexchoiceCourse();
+        session.setAttribute("selectchoiceCourse",choiceCourse);
         return b;
     }
 
@@ -57,15 +58,10 @@ public class CourseController {
         /*将上传文件保存到相应位置*/
         file.transferTo(new File(path));
         /*设置具体的位置*/
-        file.transferTo(new File("E:/IntelliJ IDEA Project/SSM/web/upload/" + file.getOriginalFilename()));
+        file.transferTo(new File("F:/IDEAWorkspace/SSM/web/upload/" + file.getOriginalFilename()));
         FilePathResponse path1 = new FilePathResponse();
         /*文件设置在path1中*/
         path1.setLink("/upload/" + file.getOriginalFilename());
-       /* 获取第一张图片*/
-        String firstImgPath = (String) session.getAttribute("firstImgPath");
-        if (firstImgPath == null) {
-            session.setAttribute("firstImgPath", "/upload/" + file.getOriginalFilename());
-        }
         return path1;
     }
     /*通过菜的id修改点赞数*/
@@ -88,7 +84,9 @@ public class CourseController {
     }
     /*查询属于一种类型的菜*/
     @RequestMapping("/selectAllCourseAndPage")
-    public String selectAllCourse(Condition condition, Model model) {
+    public String selectAllCourse(Condition condition, Model model) throws UnsupportedEncodingException {
+        String courseType=new String(condition.getC_type().getBytes("ISO8859-1"),"utf-8");
+        condition.setC_type(courseType);
         model.addAttribute("selectCoursePaging",courseService.selectAllCourseAndPage(condition));
         return "menuClassifiesAndPage";
     }
@@ -99,10 +97,14 @@ public class CourseController {
        return "selectCourse";
     }*/
    //*查询上传的菜*//*
-   @RequestMapping("/selectCourse")
+   @RequestMapping("/selectCourseAndComment")
     public String selectCourse(Course course,HttpSession session,Model model) {
+
         model.addAttribute("selectCourseAndComment",courseService.selectCourse(course));
-       return "selectCource";
+       /*查询精选美食,不分页*/
+       List<Course> choiceCourse= courseService.selectIndexchoiceCourse();
+       session.setAttribute("selectchoiceCourse",choiceCourse);
+       return "selectCourseAndComment";
     }
    /* 查询最新美食*/
    @RequestMapping("/selectNewCate")

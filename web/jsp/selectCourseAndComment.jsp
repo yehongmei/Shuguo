@@ -14,16 +14,17 @@
     <link rel="icon"  type="image/x-icon" href="../images/title_logo.ico">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/footer.css">
-    <link rel="stylesheet" href="../css/selectCource.css">
+    <link rel="stylesheet" href="../css/selectCourseAndComment.css">
     <link rel="stylesheet" href="../resource/bootstrap-3.3.7/dist/css/bootstrap.css">
     <script src="../resource/jquery-3.2.0.js"></script>
     <script src="../resource/bootstrap-3.3.7/dist/js/bootstrap.js"></script>
-    <script src="../js/selectCource.js"></script>
+    <script src="../js/selectCourseAndComment.js"></script>
 </head>
 <body>
     <%
         Course course=(Course)request.getAttribute("selectCourseAndComment");
         List<Comment> comments=course.getComments();
+        List<Course> choiceCourses=(List<Course>) session.getAttribute("selectchoiceCourse");
     %>
     <input id="c_id" type="hidden" value="<%=course.getC_id()%>">
 <!--头部开始-->
@@ -60,9 +61,19 @@
         </div>
         <div class="content_right">
             <h4>美食推荐</h4>
-            <ul class="list-right-recipe">
-                <li><img src="../images/small1.jpg" alt="" style="margin-left: 50px"></li>
+            <%
+                for(int i=0;i<choiceCourses.size();i++){
+                    Course choiceCourse=choiceCourses.get(i);
+            %>
+            <ul>
+                <li>
+                    <a href="selectCourseAndComment?c_id=<%=choiceCourse.getC_id()%>">
+                        <img src="<%=choiceCourse.getC_firstImage()%>" alt="" width="155px" height="125px">
+                        <span><%=choiceCourse.getC_name()%></span>
+                    </a>
+                </li>
             </ul>
+            <%}%>
         </div>
     </div>
 </div>

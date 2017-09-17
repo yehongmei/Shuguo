@@ -37,7 +37,7 @@
                         Course course = courses.get(i);
                 %>
                 <ul class="content_left_content">
-                    <li><a href="selectCourse?c_id=<%=course.getC_id()%>">
+                    <li><a href="selectCourseAndComment?c_id=<%=course.getC_id()%>">
                         <p> <%=course.getC_name()%></p>
                         </a>
                         <span><%=course.getC_date()%></span>
@@ -55,7 +55,7 @@
                 %>
                 <ul>
                     <li>
-                        <a href="">
+                      <a href="selectCourseAndComment?c_id=<%=choiceCourse.getC_id()%>">
                             <img src="<%=choiceCourse.getC_firstImage()%>" alt="" width="155px" height="125px">
                             <span><%=choiceCourse.getC_name()%></span>
                         </a>

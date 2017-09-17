@@ -101,7 +101,7 @@
                     Course course=courses.get(i);
                 %>
                 <ul class="new_recipes_list">
-                    <li><a href="selectCourse?c_id=<%=course.getC_id()%>"><img src="<%=course.getC_firstImage()%>" height="150" width="190"/><p><%=course.getC_name()%></p></a></li>
+                    <li><a href="selectCourseAndComment?c_id=<%=course.getC_id()%>"><img src="<%=course.getC_firstImage()%>" height="150" width="190"/><p><%=course.getC_name()%></p></a></li>
                 </ul>
                <%}%>
             </div>
@@ -135,7 +135,7 @@
                         Course choiceCourse=choiceCourses.get(i);
                 %>
                 <ul class="choice_recipes_list">
-                    <li><a href="selectCourse?c_id=<%=choiceCourse.getC_id()%>"><img src="<%=choiceCourse.getC_firstImage()%>" height="190" width="240"/><p><%=choiceCourse.getC_name()%></p></a></li>
+                    <li><a href="selectCourseAndComment?c_id=<%=choiceCourse.getC_id()%>"><img src="<%=choiceCourse.getC_firstImage()%>" height="190" width="240"/><p><%=choiceCourse.getC_name()%></p></a></li>
                 </ul>
                 <%}%>
             </div>

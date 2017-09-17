@@ -6,7 +6,7 @@
     </insert>
     <!-- 修改点赞-->
     <update id="updateCoursePraise">
-      UPDATE course SET c_praise=c_praise+1 where c_id=#{c_id};
+        UPDATE course SET c_praise=c_praise+1 where c_id=#{c_id};
     </update>
     <!--查询点赞表是否存在该用户点赞-->
     <select id="selectPraise" resultType="entities.Praise">
@@ -16,7 +16,7 @@
         INSERT  INTO praise (u_id, c_id) VALUE (#{u_id},#{c_id});
     </insert>
     <select id="selectAllCourse" resultType="entities.Course">
-      SELECT c_id,c_type,c_firstImage,c_name from course WHERE c_type=#{c_type} limit #{calculationPageNumber},16;
+        SELECT c_id,c_type,c_firstImage,c_name from course WHERE c_type=#{c_type} limit #{calculationPageNumber},16;
     </select>
     <select id="selectPageCount" resultType="java.lang.Integer">
         SELECT  count(*) FROM course  WHERE c_type=#{c_type};
@@ -37,7 +37,7 @@
         SELECT  count(*) FROM course ;
     </select>
     <select id="fuzzySearch" resultType="entities.Course">
-        select c_id,c_name,c_firstImage,c_type from course
+        select c_id,c_name,c_operation,c_firstImage,c_type from course
         <where>
             <if test="c_name!=null and c_name!=''">
                 c_name LIKE '%${c_name}%'
@@ -48,7 +48,7 @@
     <select id="fuzzySearchCount" resultType="java.lang.Integer">
         SELECT count(*) FROM course where   c_name LIKE '%${c_name}%'
     </select>
-   <!-- 映射关系（相同字段不配置）-->
+    <!-- 映射关系（相同字段不配置）-->
     <resultMap id="courseResultMap"  type="entities.Course">
         <id property="c_id" column="c_id"/>
         <association property="user" column="u_id" select="mapper.UserMapper.selectUserById"/>
