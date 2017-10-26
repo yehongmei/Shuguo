@@ -10,5 +10,5 @@
     <!--根据u_id查询-->
     <select id="selectUserById" resultType="entities.User">
         SELECT * from user WHERE u_id=#{value}
-    </select   >
+    </select>
 </mapper>
